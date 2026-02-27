@@ -4447,6 +4447,176 @@
       .req-after-zone { padding: 12px 18px 18px; }
       .req-arrow { margin: 0 18px; }
     }
+
+    /* ═══════════════════════════════════════════════════════════════
+       STRUCTURAL REDESIGNS — Decisions + Measurement
+       ═══════════════════════════════════════════════════════════════ */
+
+    /* ── DECISION CASES: horizontal sidebar rows ────────────────── */
+    /* Replaces the mismatched 2-column card grid with a consistent
+       numbered-row layout: [sidebar: number + icon] | [content]     */
+    .cases-grid--decisions {
+      grid-template-columns: 1fr !important;
+      gap: 3px !important;
+      margin: 44px 0;
+    }
+    .cases-grid--decisions .case-item:last-child {
+      grid-column: 1 !important;
+    }
+    .cases-grid--decisions .case-item {
+      display: grid !important;
+      grid-template-columns: 148px 1fr;
+      align-items: stretch;
+      padding: 0 !important;
+      border-radius: 8px;
+      min-height: unset;
+      overflow: hidden;
+    }
+    /* Remove the tall decorative orb — unnecessary in row layout */
+    .cases-grid--decisions .case-item::after { display: none; }
+    /* Restore the left-edge accent as a 3px strip on the sidebar */
+    .cases-grid--decisions .case-item::before {
+      top: 0; bottom: 0; width: 3px; height: auto;
+      border-radius: 0;
+    }
+    .cases-grid--decisions .case-header {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 0;
+      padding: 28px 16px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      background: rgba(0,0,0,0.18);
+      text-align: center;
+    }
+    .cases-grid--decisions .cn {
+      font-size: 28px !important;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      padding: 0 !important;
+      border: none !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+      line-height: 1;
+      color: var(--text);
+    }
+    .cases-grid--decisions .ctag {
+      font-size: 9px;
+      text-align: center;
+      line-height: 1.4;
+    }
+    .cases-grid--decisions .case-icon {
+      margin-left: 0;
+      background: rgba(255,255,255,0.04);
+    }
+    .cases-grid--decisions .case-body {
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cases-grid--decisions .case-body h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+    .cases-grid--decisions .case-body p {
+      font-size: 13.5px;
+      line-height: 1.65;
+      margin: 0 0 14px;
+    }
+    .cases-grid--decisions .case-out {
+      margin-top: 0;
+    }
+
+    /* ── KPI GRID: 2-column, consistent height, signal badges ───── */
+    /* Replaces the 3-column auto-fit layout that produced mismatched
+       card heights with a fixed 2-column grid + start alignment     */
+    .kpi-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      align-items: start !important;
+    }
+    /* Force kpi-name to a consistent min-height so title wrap
+       doesn't shift card content start positions */
+    .kpi-name {
+      min-height: 2.8em;
+      display: flex;
+      align-items: flex-start;
+    }
+    /* Signal type badge — colored pill above the bars */
+    .kpi-signal {
+      gap: 0;
+    }
+    .kpi-signal-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 8px 3px 6px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+      width: fit-content;
+    }
+    .kpi-signal-type::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .kpi-signal--good .kpi-signal-type {
+      color: #8fe3a6;
+      background: rgba(103,212,135,0.12);
+      border: 1px solid rgba(103,212,135,0.25);
+    }
+    .kpi-signal--good .kpi-signal-type::before { background: #67d487; }
+
+    .kpi-signal--warn .kpi-signal-type {
+      color: #e6c86c;
+      background: rgba(224,188,86,0.12);
+      border: 1px solid rgba(224,188,86,0.25);
+    }
+    .kpi-signal--warn .kpi-signal-type::before { background: #e0bc56; }
+
+    .kpi-signal--risk .kpi-signal-type {
+      color: #f19393;
+      background: rgba(239,107,107,0.12);
+      border: 1px solid rgba(239,107,107,0.25);
+    }
+    .kpi-signal--risk .kpi-signal-type::before { background: #ef6b6b; }
+
+    /* Responsive overrides */
+    @media (max-width: 860px) {
+      .cases-grid--decisions .case-item {
+        grid-template-columns: 100px 1fr;
+      }
+      .cases-grid--decisions .case-header {
+        padding: 20px 10px;
+      }
+      .cases-grid--decisions .case-body {
+        padding: 18px 18px;
+      }
+      .cases-grid--decisions .cn { font-size: 22px !important; }
+    }
+    @media (max-width: 600px) {
+      .cases-grid--decisions .case-item {
+        grid-template-columns: 1fr !important;
+      }
+      .cases-grid--decisions .case-header {
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 14px 16px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+      .kpi-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
   </style>
 </head>
 
@@ -5894,6 +6064,7 @@
             <div class="kpi-desc">The proportion of knowledge queries that return a result the user accepts as useful -
               defined not by whether a result appeared, but whether the user acted on it.</div>
             <div class="kpi-signal kpi-signal--good">
+              <div class="kpi-signal-type">Good Signal</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">What movement looks like</div>
               <div class="kpi-signal-val">Baseline typically 40-60% in ungoverned estates. Governed estates with hybrid
                 retrieval reach 75-90%.</div>
@@ -5905,6 +6076,7 @@
               gaps in taxonomy coverage, ingestion failure, or misalignment between how knowledge is classified and how
               it is searched.</div>
             <div class="kpi-signal kpi-signal--warn">
+              <div class="kpi-signal-type">Warning</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Why it matters</div>
               <div class="kpi-signal-val">Every zero-result query is a decision made without support. Tracked over time,
                 it directly maps to coverage gaps the taxonomy must close.</div>
@@ -5916,6 +6088,7 @@
               window. Varies by domain - a regulatory policy may require 90-day review; a product specification may be
               annual.</div>
             <div class="kpi-signal kpi-signal--risk">
+              <div class="kpi-signal-type">At Risk</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">The failure mode</div>
               <div class="kpi-signal-val">Without ownership and review incentives, content becomes stale regardless of
                 tooling. Freshness SLA makes staleness visible before it becomes a decision risk.</div>
@@ -5927,6 +6100,7 @@
               assets in Trust, Review, and Retire states. Tracks whether estate quality is improving or degrading over
               time.</div>
             <div class="kpi-signal kpi-signal--good">
+              <div class="kpi-signal-type">Good Signal</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Target direction</div>
               <div class="kpi-signal-val">Trust proportion should rise over time as governance matures. A static or
                 declining Trust proportion signals that ingestion is outpacing governance.</div>
@@ -5950,6 +6124,7 @@
               upon. Applies across functions - from a service agent resolving a case, to a strategist validating an
               assumption before a board presentation.</div>
             <div class="kpi-signal kpi-signal--good">
+              <div class="kpi-signal-type">Good Signal</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Evidence from production</div>
               <div class="kpi-signal-val">UCB (biopharma) reduced regulatory response assembly time by 90% - from three
                 weeks to two days - after governing retrieval over a large clinical and R&D content estate.</div>
@@ -5961,6 +6136,7 @@
               knowledge retrieval. Measured across service, legal, compliance, and HR workflows where knowledge
               retrieval is embedded in the resolution path.</div>
             <div class="kpi-signal kpi-signal--good">
+              <div class="kpi-signal-type">Good Signal</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Evidence from production</div>
               <div class="kpi-signal-val">A knowledge graph-enhanced retrieval deployment at LinkedIn reduced median
                 per-issue resolution time by 28.6% after six months, with retrieval quality improvement of +77.6% MRR.
@@ -5973,6 +6149,7 @@
               knowledge they need. Captures the upstream friction that precedes a decision or action, including search
               time, re-escalation, and rework.</div>
             <div class="kpi-signal kpi-signal--good">
+              <div class="kpi-signal-type">Good Signal</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Evidence from production</div>
               <div class="kpi-signal-val">A financial services deployment reported an 86% reduction in time spent
                 searching for knowledge, an 11.25% reduction in average handle time, and 2.5 days saved per new hire in
@@ -5985,6 +6162,7 @@
               knowledge rather than requiring new retrieval, reconstruction, or escalation. High reuse rates indicate
               that classification is working and the estate is genuinely navigable.</div>
             <div class="kpi-signal kpi-signal--warn">
+              <div class="kpi-signal-type">Warning</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">What it indicates</div>
               <div class="kpi-signal-val">Low reuse despite high coverage signals taxonomy misalignment. High reuse with
                 declining freshness signals the estate is being used but not maintained - a compounding risk.</div>
@@ -6008,6 +6186,7 @@
               the same analysis or deliverable. Calculated as reuse events multiplied by average asset creation time and
               blended rate - calibrated to the organisation.</div>
             <div class="kpi-signal kpi-signal--warn">
+              <div class="kpi-signal-type">Warning</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">The signal to watch</div>
               <div class="kpi-signal-val">Rising reuse with flat external spend indicates the savings are real. Flat
                 reuse with rising external spend indicates coverage gaps that cost money.</div>
@@ -6018,6 +6197,7 @@
             <div class="kpi-desc">Time from start date to independent contribution in role-relevant workflows that
               depend on governed knowledge access.</div>
             <div class="kpi-signal kpi-signal--risk">
+              <div class="kpi-signal-type">At Risk</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Failure signal</div>
               <div class="kpi-signal-val">If onboarding time stays flat while retrieval quality improves, local adoption
                 or workflow integration is failing.</div>
@@ -6028,6 +6208,7 @@
             <div class="kpi-desc">Reduction in vendor or consultancy spend for questions that can be answered from
               internal governed knowledge.</div>
             <div class="kpi-signal kpi-signal--risk">
+              <div class="kpi-signal-type">At Risk</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Failure signal</div>
               <div class="kpi-signal-val">Repeated external purchases following high-volume internal zero-result queries
                 indicate unresolved coverage gaps.</div>
@@ -6051,6 +6232,7 @@
               people hold the relevant expertise. A domain where only one or two people are the recognised source of
               truth is a concentration risk - regardless of whether that knowledge has been documented.</div>
             <div class="kpi-signal kpi-signal--risk">
+              <div class="kpi-signal-type">At Risk</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">When it becomes urgent</div>
               <div class="kpi-signal-val">Concentration risk is invisible until it crystallises - a departure, a health
                 event, a reorg. Tracking it continuously enables deliberate mitigation before the loss occurs.</div>
@@ -6062,6 +6244,7 @@
               without manual intervention. A declining rate signals the estate is evolving faster than the
               classification model.</div>
             <div class="kpi-signal kpi-signal--warn">
+              <div class="kpi-signal-type">Warning</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">The signal to watch</div>
               <div class="kpi-signal-val">High alignment with low retrieval success means the taxonomy is consistent but
                 wrong. Both must be tracked together.</div>
@@ -6072,6 +6255,7 @@
             <div class="kpi-desc">The rate at which knowledge leaves the estate without capture - through departures,
               project completions, or system retirements where no elicitation or transfer has occurred.</div>
             <div class="kpi-signal kpi-signal--risk">
+              <div class="kpi-signal-type">At Risk</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">The compounding risk</div>
               <div class="kpi-signal-val">Knowledge loss is almost never measured in real time. By the time it registers
                 as a problem, the knowledge is already gone. This metric is most valuable as a lead indicator.</div>
@@ -6082,6 +6266,7 @@
             <div class="kpi-desc">The proportion of material decisions that include a complete attribution trail showing
               which assets and contributors influenced the decision.</div>
             <div class="kpi-signal kpi-signal--risk">
+              <div class="kpi-signal-type">At Risk</div>
               <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Failure signal</div>
               <div class="kpi-signal-val">Low coverage means value cannot be credited and accountability cannot be
                 audited, which weakens both incentives and governance.</div>
