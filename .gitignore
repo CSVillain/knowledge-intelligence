@@ -1,0 +1,24 @@
+# Research & reference materials (large, not needed for the site)
+research/
+
+# Whitepaper source & build pipeline (kept locally, not public)
+whitepaper/
+
+# Internal tooling
+tools/
+
+# Agent instructions & operational docs (internal only)
+instructions/
+
+# Local Claude Code settings
+.claude/
+
+# Images not used by the deployed site
+images/3d-network.png
+images/blue-graph.png
+images/iceberg.png
+images/kore-cube.png
+images/mechanism.png
+images/mockup-tacit-constellation.svg
+images/dalle-prompt-pack.md
+images/diagrams/
