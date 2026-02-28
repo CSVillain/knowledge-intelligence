@@ -102,7 +102,7 @@ Pushing to `main` is the only required deploy action. There is no build, compile
 - Keep commits focused and small.
 - Do not force-push unless explicitly requested.
 - Do not revert unrelated local changes made by the user.
-- Target branch for AI-assisted work: `claude/add-claude-documentation-DvOof`
+- Target branch for AI-assisted work: feature branches prefixed `claude/` (created per session)
 - Production branch: `main` (triggers live deployment on push)
 
 ---
