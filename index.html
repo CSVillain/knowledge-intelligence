@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
   <style>
@@ -150,6 +150,8 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      animation: heroSubFade 0.7s ease 0.05s forwards;
+      opacity: 0;
     }
 
     .hero-eyebrow::before {
@@ -178,6 +180,10 @@
       font-weight: 300;
     }
 
+    .hero-title-secondary {
+      font-weight: 500;
+    }
+
     .hero-sub {
       font-size: 17px;
       color: var(--text2);
@@ -195,7 +201,7 @@
       margin: -18px 0 38px;
       padding: 18px 20px 16px;
       border: 1px solid var(--border);
-      border-left: 0px solid var(--gold);
+      border-left: 2px solid var(--gold);
       border-radius: 8px;
       background:
         radial-gradient(700px 220px at 0% 0%, rgba(0, 0, 0, 0.468), transparent 62%),
@@ -231,7 +237,7 @@
       padding: 7px 10px;
       border-radius: 999px;
       border: 1px solid var(--border2);
-      background: rgba(221, 30, 30, 0.03);
+      background: rgba(255, 255, 255, 0.03);
       font-size: 11px;
       color: var(--text2);
       line-height: 1.2;
@@ -242,17 +248,14 @@
       color: var(--text);
     }
 
-    .hero-eyebrow {
-      animation: heroSubFade 0.7s ease 0.05s forwards;
-      opacity: 0;
-    }
-
     .hero-divider {
       animation: heroSubFade 0.7s ease 1.8s forwards;
       opacity: 0;
     }
 
     .hero-meta {
+      display: flex;
+      gap: 56px;
       animation: heroSubFade 0.7s ease 2.0s forwards;
       opacity: 0;
     }
@@ -267,12 +270,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-/* can  */
-    .hero-meta {
-      display: flex;
-      gap: 56px;
     }
 
     .hero-meta-item label {
@@ -295,6 +292,10 @@
       max-width: 1080px;
       margin: 0 auto;
       padding: 100px 80px;
+    }
+
+    .sw--first {
+      padding-top: 80px;
     }
 
     .section-tag {
@@ -3335,7 +3336,7 @@
     }
 
     /* RESPONSIVE */
-    @media(max-width:900px) {
+    @media (max-width: 900px) {
 
       .hero,
       .sw {
@@ -3470,7 +3471,7 @@
 
     }
 
-    @media(max-width:600px) {
+    @media (max-width: 600px) {
       .kpi-grid {
         grid-template-columns: 1fr;
       }
@@ -4180,7 +4181,7 @@
     }
 
     /* ── RESPONSIVE ─────────────────────────────────────────────── */
-    @media(max-width:900px) {
+    @media (max-width: 900px) {
       .div-full {
         width: calc(100% - 48px);
       }
@@ -4622,7 +4623,7 @@
 
 <body>
 
-  <nav>
+  <nav aria-label="Main navigation">
     <div class="nav-logo">Knowledge Intelligence</div>
     <div class="nav-links">
       <a href="#knowledge">The Assets</a>
@@ -4639,8 +4640,8 @@
     <div class="hero-bg"></div>
 
     <h1 id="hero-title" aria-label="Knowledge Intelligence"><span class="hero-title-word"
-        id="htw1">Knowledge</span><br><span class="hero-title-word" id="htw2"
-        style="color:var(--text3);font-weight:500;">Intelligence</span></h1>
+        id="htw1">Knowledge</span><br><span class="hero-title-word hero-title-secondary"
+        id="htw2">Intelligence</span></h1>
     <p class="hero-sub">Making the case for a new strategic capability - and what it takes to finally see, measure, and
       govern everything an organisation knows.</p>
     <div class="hero-divider"></div>
@@ -4663,7 +4664,7 @@
   </div>
 
   <!-- OPENING -->
-  <div class="sw" id="opening" style="padding-top:80px;">
+  <div class="sw sw--first" id="opening">
     <div class="section-tag">Opening Statement</div>
     <h2>Organisations have never been able to see everything they know.</h2>
     <div class="opening-block fade-in">
@@ -5256,13 +5257,13 @@
         </div>
         <div class="journey-nodes">
           <div class="journey-node" data-step="01" role="presentation" aria-hidden="true">
-            <span class="journey-core"><i class="journey-icon" data-lucide="network"></i></span>
+            <span class="journey-core"><i class="journey-icon" data-lucide="network" aria-hidden="true"></i></span>
           </div>
           <div class="journey-node" data-step="02" role="presentation" aria-hidden="true">
-            <span class="journey-core"><i class="journey-icon" data-lucide="cpu"></i></span>
+            <span class="journey-core"><i class="journey-icon" data-lucide="cpu" aria-hidden="true"></i></span>
           </div>
           <div class="journey-node" data-step="03" role="presentation" aria-hidden="true">
-            <span class="journey-core"><i class="journey-icon" data-lucide="shield-check"></i></span>
+            <span class="journey-core"><i class="journey-icon" data-lucide="shield-check" aria-hidden="true"></i></span>
           </div>
         </div>
       </div>
@@ -5951,7 +5952,7 @@
         <div class="case-header">
           <div class="cn">01</div>
           <div class="ctag">Strategic Timing</div>
-          <div class="case-icon"><i data-lucide="eye" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="eye" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="case-body">
           <h3>Detecting emerging themes before they are named</h3>
@@ -5967,7 +5968,7 @@
         <div class="case-header">
           <div class="cn">02</div>
           <div class="ctag">Risk</div>
-          <div class="case-icon"><i data-lucide="user-x" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="user-x" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="case-body">
           <h3>Measuring concentration risk in the knowledge estate</h3>
@@ -5985,7 +5986,7 @@
         <div class="case-header">
           <div class="cn">03</div>
           <div class="ctag">Concept Health</div>
-          <div class="case-icon"><i data-lucide="brain" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="brain" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="case-body">
           <h3>Evidence-based evolution of strategic concepts</h3>
@@ -6001,7 +6002,7 @@
         <div class="case-header">
           <div class="cn">04</div>
           <div class="ctag">Confidence</div>
-          <div class="case-icon"><i data-lucide="shield-check" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="shield-check" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="case-body">
           <h3>Governing confidence across the knowledge estate</h3>
@@ -6018,7 +6019,7 @@
         <div class="case-header">
           <div class="cn">05</div>
           <div class="ctag">External Alignment</div>
-          <div class="case-icon"><i data-lucide="arrow-left-right" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="arrow-left-right" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="case-body">
           <h3>Deliberate alignment between internal knowledge and external context</h3>
@@ -6306,7 +6307,7 @@
       <div class="req-card req-card--asset">
         <div class="req-icon-zone">
           <div class="req-icon-ring"></div>
-          <i data-lucide="layers" class="req-icon"></i>
+          <i data-lucide="layers" class="req-icon" aria-hidden="true"></i>
         </div>
         <div class="req-before-zone">
           <div class="req-from">From</div>
@@ -6325,7 +6326,7 @@
       <div class="req-card req-card--confidence">
         <div class="req-icon-zone">
           <div class="req-icon-ring"></div>
-          <i data-lucide="shield-check" class="req-icon"></i>
+          <i data-lucide="shield-check" class="req-icon" aria-hidden="true"></i>
         </div>
         <div class="req-before-zone">
           <div class="req-from">From</div>
@@ -6343,7 +6344,7 @@
       <div class="req-card req-card--trajectory">
         <div class="req-icon-zone">
           <div class="req-icon-ring"></div>
-          <i data-lucide="trending-up" class="req-icon"></i>
+          <i data-lucide="trending-up" class="req-icon" aria-hidden="true"></i>
         </div>
         <div class="req-before-zone">
           <div class="req-from">From</div>
@@ -6376,7 +6377,7 @@
         <div class="case-header">
           <div class="cn">01</div>
           <div class="ctag">Culture</div>
-          <div class="case-icon"><i data-lucide="users" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="users" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="barrier-severity">
           <div class="barrier-severity-pips">
@@ -6401,7 +6402,7 @@
         <div class="case-header">
           <div class="cn">02</div>
           <div class="ctag">Complexity</div>
-          <div class="case-icon"><i data-lucide="layers" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="layers" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="barrier-severity">
           <div class="barrier-severity-pips">
@@ -6427,7 +6428,7 @@
         <div class="case-header">
           <div class="cn">03</div>
           <div class="ctag">Investment</div>
-          <div class="case-icon"><i data-lucide="hourglass" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="hourglass" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="barrier-severity">
           <div class="barrier-severity-pips">
@@ -6453,7 +6454,7 @@
         <div class="case-header">
           <div class="cn">04</div>
           <div class="ctag">AI Dependency</div>
-          <div class="case-icon"><i data-lucide="cpu" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="cpu" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="barrier-severity">
           <div class="barrier-severity-pips">
@@ -6531,7 +6532,7 @@
         <div class="case-header">
           <div class="cn">A</div>
           <div class="ctag">Technical</div>
-          <div class="case-icon"><i data-lucide="flame" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="flame" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="case-body">
           <h3>Confidence drift from stale or conflicting sources</h3>
@@ -6545,7 +6546,7 @@
         <div class="case-header">
           <div class="cn">B</div>
           <div class="ctag">Governance</div>
-          <div class="case-icon"><i data-lucide="sliders-horizontal" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="sliders-horizontal" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="case-body">
           <h3>Automation without clear thresholds or owners</h3>
@@ -6559,7 +6560,7 @@
         <div class="case-header">
           <div class="cn">C</div>
           <div class="ctag">Cultural</div>
-          <div class="case-icon"><i data-lucide="user-minus" class="lucide"></i></div>
+          <div class="case-icon"><i data-lucide="user-minus" class="lucide" aria-hidden="true"></i></div>
         </div>
         <div class="case-body">
           <h3>Low contribution because value is not credited</h3>
