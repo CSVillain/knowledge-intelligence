@@ -13,6 +13,12 @@ instructions/
 # Local Claude Code settings
 .claude/
 
+# Jekyll local build and cache artifacts
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.sass-cache/
+
 # Images not used by the deployed site
 images/3d-network.png
 images/blue-graph.png
@@ -23,4 +29,3 @@ images/mockup-tacit-constellation.svg
 images/dalle-prompt-pack.md
 images/diagrams/
 images/simple_landing_concept_1.png
-_site/

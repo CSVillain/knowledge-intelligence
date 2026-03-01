@@ -31,4 +31,35 @@ The site is deployed by GitHub Actions + GitHub Pages via `.github/workflows/dep
 - Published artifact: `./_site`
 - Public chapter URLs remain clean at root (`/assets.html`, `/challenge.html`, etc.) via page-level `permalink` front matter in `pages/*.html`
 
+## Editing guide
+
+- Update homepage content in `index.html`.
+- Update chapter content in `pages/*.html`.
+- Keep each chapter front matter intact:
+  - `---`
+  - `permalink: /<chapter>.html`
+  - `---`
+- Shared presentation logic belongs in:
+  - `assets/css/site.css`
+  - `assets/js/site.js`
+- Use root-relative paths for internal links and assets (e.g. `/assets.html`, `/assets/css/site.css`).
+
+## Quality checks
+
+- PR validation workflow: `.github/workflows/validate.yml`
+  - Builds with Jekyll
+  - Verifies expected output files
+  - Verifies canonical tags and critical nav links
+
+Local validation (optional):
+
+```bash
+JEKYLL_ENV=production jekyll build --source . --destination ./_site
+```
+
+## SEO and crawl files
+
+- `robots.txt`
+- `sitemap.xml`
+
 From information abundance to decision advantage.

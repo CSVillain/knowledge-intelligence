@@ -1,0 +1,100 @@
+name: Validate Site
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: .
+          destination: ./_site
+
+      - name: Validate generated output
+        run: |
+          set -euo pipefail
+
+          for f in \
+            _site/index.html \
+            _site/assets.html \
+            _site/challenge.html \
+            _site/capability.html \
+            _site/framework.html \
+            _site/decisions.html \
+            _site/measurement.html \
+            _site/barriers.html \
+            _site/assets/css/site.css \
+            _site/assets/js/site.js \
+            _site/assets/images/network.png \
+            _site/assets/images/kore-logo-horizontal-gradient-dark.svg; do
+            test -f "$f" || { echo "Missing expected file: $f"; exit 1; }
+          done
+
+          python3 - <<'PY'
+          import re
+          import pathlib
+          import sys
+
+          pages = [
+              "_site/index.html",
+              "_site/assets.html",
+              "_site/challenge.html",
+              "_site/capability.html",
+              "_site/framework.html",
+              "_site/decisions.html",
+              "_site/measurement.html",
+              "_site/barriers.html",
+          ]
+          nav_targets = [
+              "/assets.html",
+              "/challenge.html",
+              "/capability.html",
+              "/framework.html",
+              "/decisions.html",
+              "/measurement.html",
+              "/barriers.html",
+          ]
+          expected_canonical = {
+              "_site/index.html": "https://knowledge-intelligence.dev/",
+              "_site/assets.html": "https://knowledge-intelligence.dev/assets.html",
+              "_site/challenge.html": "https://knowledge-intelligence.dev/challenge.html",
+              "_site/capability.html": "https://knowledge-intelligence.dev/capability.html",
+              "_site/framework.html": "https://knowledge-intelligence.dev/framework.html",
+              "_site/decisions.html": "https://knowledge-intelligence.dev/decisions.html",
+              "_site/measurement.html": "https://knowledge-intelligence.dev/measurement.html",
+              "_site/barriers.html": "https://knowledge-intelligence.dev/barriers.html",
+          }
+
+          for page in pages:
+              html = pathlib.Path(page).read_text(encoding="utf-8")
+              if 'href="/assets/css/site.css"' not in html:
+                  print(f"Missing shared CSS reference in {page}")
+                  sys.exit(1)
+              if 'src="/assets/js/site.js"' not in html:
+                  print(f"Missing shared JS reference in {page}")
+                  sys.exit(1)
+              for target in nav_targets:
+                  if f'href="{target}"' not in html:
+                      print(f"Missing nav target {target} in {page}")
+                      sys.exit(1)
+              match = re.search(r'<link rel="canonical" href="([^"]+)"', html)
+              if not match:
+                  print(f"Missing canonical tag in {page}")
+                  sys.exit(1)
+              if match.group(1) != expected_canonical[page]:
+                  print(f"Canonical mismatch in {page}: {match.group(1)}")
+                  sys.exit(1)
+
+          print("Validation passed.")
+          PY

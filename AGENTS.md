@@ -2,6 +2,11 @@
 
 Repository-specific guidance for Codex and other coding agents.
 
+## Authority
+- This file is the single source of truth for agent behavior in this repository.
+- If another agent-specific file conflicts with this file, follow `AGENTS.md`.
+- Agent-specific files are optional compatibility notes only and must not override this file.
+
 ## Project Context
 - Repo: `knowledge-intelligence`
 - Type: Static GitHub Pages site (Jekyll build in CI)
@@ -30,6 +35,12 @@ Repository-specific guidance for Codex and other coding agents.
 - Pages deploy artifact path is `./_site`.
 - Public URLs stay root-level (`/assets.html`, etc.) via `permalink` values in `pages/*.html`.
 - Keep `CNAME` in the repo root to preserve custom domain mapping.
+
+## Content Governance
+- Write in plain, precise language; avoid hype and transformation buzzwords.
+- Avoid unverified statistics or claims.
+- Prefer structurally defensible assertions tied to governance, measurement, and decision quality.
+- Treat Knowledge Intelligence as an operating/governance capability, not a marketing category.
 
 ## Validation Checklist (Before Commit)
 1. Confirm changed assets exist and paths in `index.html` / `pages/*.html` are correct.
