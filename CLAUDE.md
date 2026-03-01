@@ -16,30 +16,30 @@ This repository publishes the **Knowledge Intelligence** white paper and framewo
 
 ```
 knowledge-intelligence/
-├── index.html                    # Single-page website (all HTML, CSS, JS inline)
+├── index.html                    # Landing page and chapter hub
+├── pages/
+│   ├── assets.html               # Source page (permalink: /assets.html)
+│   ├── barriers.html             # Source page (permalink: /barriers.html)
+│   ├── capability.html           # Source page (permalink: /capability.html)
+│   ├── challenge.html            # Source page (permalink: /challenge.html)
+│   ├── decisions.html            # Source page (permalink: /decisions.html)
+│   ├── framework.html            # Source page (permalink: /framework.html)
+│   └── measurement.html          # Source page (permalink: /measurement.html)
 ├── CNAME                         # Custom domain — do not delete
 ├── README.md                     # Project overview
 ├── AGENTS.md                     # Coding agent guidance (Codex/OpenAI)
 ├── CLAUDE.md                     # This file
 ├── assets/
-│   └── kore-logo-horizontal-gradient-dark.svg
-├── images/
-│   ├── network.png               # Hero background
-│   └── Henley docs/              # Reference PDF materials
-├── .github/
-│   └── workflows/
-│       └── deploy.yml            # GitHub Pages deployment pipeline
-├── instructions/                 # Authoritative content governance documents
-│   ├── Knowledge_Intelligence_Executive_Instruction_Block.md
-│   ├── Knowledge_Intelligence_Full_Instruction_Set.md
-│   ├── Knowledge_Intelligence_Red_Team_Instruction_Set.md
-│   └── Knowledge_Intelligence_Strategy_Governance_Pack_v1.0.md
-└── research/                     # Supporting research reports
-    ├── know-intl-deep-research-report.md
-    ├── know-intl-deep-research-report-v2.md
-    ├── know-intl-deep-research-report-v3.md      # Most complete version
-    ├── kore-deep-research-report.md
-    └── Henley docs/
+│   ├── css/
+│   │   └── site.css              # Shared stylesheet
+│   ├── js/
+│   │   └── site.js               # Shared JavaScript
+│   └── images/
+│       ├── kore-logo-horizontal-gradient-dark.svg
+│       └── network.png
+└── .github/
+    └── workflows/
+        └── deploy.yml            # GitHub Pages deployment pipeline
 ```
 
 ---
@@ -48,9 +48,9 @@ knowledge-intelligence/
 
 | Concern | Detail |
 |---|---|
-| Site type | Static HTML — no build step, no framework |
-| Styling | Embedded CSS in `index.html` (CSS variables, dark theme) |
-| JS | Minimal inline scripts + Lucide icons via CDN |
+| Site type | Static HTML source + Jekyll build for clean URL routing |
+| Styling | Shared CSS in `assets/css/site.css` |
+| JS | Shared JS in `assets/js/site.js` + Lucide icons via CDN |
 | Fonts | Google Fonts (Bricolage Grotesque, DM Sans, Inter, Space Grotesk) |
 | Deployment | GitHub Actions → GitHub Pages |
 | Package manager | None |
@@ -64,15 +64,13 @@ knowledge-intelligence/
 Default editable files for site updates:
 
 - `index.html`
+- `pages/**`
 - `assets/**`
-- `images/**` (only files already referenced by `index.html`)
+- `README.md`
 - `.github/workflows/deploy.yml` (only when changing deployment behaviour)
 
 **Do not edit unless explicitly requested:**
 
-- `research/` — research reports used as source material
-- `instructions/` — authoritative governance and instruction documents
-- `whitepaper/`, `tools/` — reserved directories (not yet created)
 - `CNAME` — must remain at repo root to preserve custom domain mapping
 
 ---
@@ -80,18 +78,19 @@ Default editable files for site updates:
 ## Deployment
 
 - **Trigger**: push to `main` or manual workflow dispatch via GitHub UI
-- **Artifact path**: repository root (`.`) — all published files must remain in a root-relative layout
+- **Build**: `actions/jekyll-build-pages@v1` (source `.` → destination `./_site`)
+- **Artifact path**: `./_site`
 - **Custom domain**: configured via `CNAME`; never delete this file
 
-Pushing to `main` is the only required deploy action. There is no build, compile, or bundle step.
+Pushing to `main` is the required deploy action; GitHub Actions handles the Jekyll build and Pages deploy.
 
 ---
 
 ## Validation Checklist (Before Committing)
 
-1. Confirm changed assets exist and all paths in `index.html` are correct.
+1. Confirm changed assets exist and all paths in `index.html` / `pages/*.html` are correct.
 2. Verify no internal/unintended directories have been exposed for publishing (check `.gitignore`).
-3. Ensure `.github/workflows/deploy.yml` still references the correct artifact path (`.`).
+3. Ensure `.github/workflows/deploy.yml` still builds and uploads `./_site`.
 4. If links were changed, use absolute domain links or root-relative paths consistent with GitHub Pages hosting.
 5. Content changes must comply with the writing constraints below.
 
@@ -202,28 +201,16 @@ When developing or extending white paper content, follow this arc:
 
 ---
 
-## Research Materials
-
-The `research/` directory contains supporting reports. The most complete reference is:
-
-- `research/know-intl-deep-research-report-v3.md` — reference architecture, capability layers, open-source toolchain, use cases
-- `research/kore-deep-research-report.md` — Kore Common Knowledge Asset (CKA) Standard v1.3, signal computation formulas, lifecycle states
-
-These are **source material**, not published content. Do not treat them as authoritative outputs.
-
----
-
 ## What Claude Should and Should Not Do
 
 **Do:**
-- Edit `index.html` for visual, structural, or content updates as requested
+- Edit `index.html` and `pages/*.html` for visual, structural, or content updates as requested
 - Follow the content governance constraints above for any text additions
 - Keep commits small and descriptive
 - Respect the safe edit scope boundaries
 
 **Do not:**
 - Add marketing language, hype, or transformation claims to white paper content
-- Edit `instructions/` or `research/` unless explicitly asked
 - Add unverified statistics or claims
 - Delete `CNAME`
 - Push to `main` without confirmation

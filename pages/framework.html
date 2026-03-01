@@ -1,0 +1,315 @@
+---
+permalink: /framework.html
+---
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Intelligence: The Framework</title>
+  <meta name="description" content="Review the Common Knowledge Asset framework, eight governed attributes, and the lifecycle model for continuous knowledge governance.">
+  <link rel="canonical" href="https://knowledge-intelligence.dev/framework.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
+  <link rel="stylesheet" href="/assets/css/site.css">
+</head>
+
+<body>
+
+  <nav aria-label="Main navigation">
+    <div class="nav-logo"><a class="nav-logo-link" href="/">Knowledge Intelligence</a></div>
+    <div class="nav-links">
+      <a href="/assets.html">The Assets</a>
+      <a href="/challenge.html">The Challenge</a>
+      <a href="/capability.html">The Capability</a>
+      <a href="/framework.html">The Framework</a>
+      <a href="/decisions.html">The Decisions</a>
+      <a href="/measurement.html">The Measurement</a>
+      <a href="/barriers.html">The Barriers</a>
+    </div>
+  </nav>
+  <!-- SECTION 5: THE FRAMEWORK -->
+  <div class="sw" id="standard">
+    <div class="section-tag">The Knowledge Intelligence Framework</div>
+    <h2>How Knowledge Intelligence actually works.</h2>
+    <p>Knowledge Intelligence is not a philosophy - it is a capability with a defined architecture. At its core is a
+      deceptively simple idea: every piece of knowledge an organisation holds should exist as a governed asset with a
+      known identity, a measurable quality, and a traceable history. Not just documents. Not just data. Everything the
+      organisation knows, in whatever form it takes.</p>
+    <p>This is what a <strong>Common Knowledge Asset</strong> is: a governed record defined by <strong>eight core
+        attributes</strong>, organised into <strong>three operating dimensions</strong>. Ingestion, classification, and
+      baseline scoring are automated. People step in for exceptions: conflicts, threshold breaches, and high-impact
+      disputes.</p>
+    <p>Confidence is calculated from clear inputs: source quality, corroboration with other trusted assets, recency
+      relative to domain change, usage in successful decisions, and detected conflicts. This is a governance signal, not
+      a sentiment score. Confidence, coverage, and consistency are treated as separate governance signals. Confidence
+      asks whether an asset is trustworthy, coverage asks whether relevant assets exist, and consistency asks whether
+      key
+      assets agree with each other.</p>
+
+    <div class="cka-wheel-wrap fade-in">
+      <div class="cka-wheel-svg-container">
+        <div class="cka-viz-label">Visualisation - CKA attribute model</div>
+        <svg viewBox="0 0 420 420" width="420" height="420" xmlns="http://www.w3.org/2000/svg" id="ckaWheel">
+          <defs>
+            <filter id="wheelGlow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="0" stdDeviation="2.2" flood-color="#000" flood-opacity="0.45" />
+            </filter>
+          </defs>
+          <rect x="0" y="0" width="420" height="420" fill="transparent" />
+          <circle cx="210" cy="210" r="164" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1" />
+          <circle cx="210" cy="210" r="92" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+          <g transform="rotate(-90 210 210)">
+            <circle class="cka-seg" data-seg="0" cx="210" cy="210" r="132" fill="none" stroke="rgba(200,168,74,0.56)"
+              stroke-width="32" stroke-linecap="butt" stroke-dasharray="90 1000" stroke-dashoffset="-104" />
+            <circle class="cka-seg" data-seg="1" cx="210" cy="210" r="132" fill="none" stroke="rgba(183,150,87,0.54)"
+              stroke-width="32" stroke-linecap="butt" stroke-dasharray="90 1000" stroke-dashoffset="-208" />
+            <circle class="cka-seg" data-seg="2" cx="210" cy="210" r="132" fill="none" stroke="rgba(164,165,103,0.52)"
+              stroke-width="32" stroke-linecap="butt" stroke-dasharray="90 1000" stroke-dashoffset="-312" />
+            <circle class="cka-seg" data-seg="3" cx="210" cy="210" r="132" fill="none" stroke="rgba(120,160,121,0.52)"
+              stroke-width="32" stroke-linecap="butt" stroke-dasharray="90 1000" stroke-dashoffset="-416" />
+            <circle class="cka-seg" data-seg="4" cx="210" cy="210" r="132" fill="none" stroke="rgba(103,212,135,0.58)"
+              stroke-width="32" stroke-linecap="butt" stroke-dasharray="90 1000" stroke-dashoffset="-520" />
+            <circle class="cka-seg" data-seg="5" cx="210" cy="210" r="132" fill="none" stroke="rgba(107,184,204,0.56)"
+              stroke-width="32" stroke-linecap="butt" stroke-dasharray="90 1000" stroke-dashoffset="-624" />
+            <circle class="cka-seg" data-seg="6" cx="210" cy="210" r="132" fill="none" stroke="rgba(127,143,205,0.56)"
+              stroke-width="32" stroke-linecap="butt" stroke-dasharray="90 1000" stroke-dashoffset="-728" />
+            <circle class="cka-seg" data-seg="7" cx="210" cy="210" r="132" fill="none" stroke="rgba(211,154,99,0.58)"
+              stroke-width="32" stroke-linecap="butt" stroke-dasharray="90 1000" stroke-dashoffset="0" />
+          </g>
+          <circle cx="210" cy="210" r="88" fill="#0b0e13" stroke="rgba(200,168,74,0.36)" stroke-width="1.5" />
+          <text class="cka-core-title" x="210" y="194" text-anchor="middle">COMMON</text>
+          <text class="cka-core-title" x="210" y="211" text-anchor="middle">KNOWLEDGE</text>
+          <text class="cka-core-title" x="210" y="228" text-anchor="middle">ASSET</text>
+          <text class="cka-core-sub" x="210" y="250" text-anchor="middle">8 ATTRIBUTES</text>
+          <line class="cka-axis-guide" x1="210" y1="61" x2="210" y2="43" />
+          <line class="cka-axis-guide" x1="315" y1="105" x2="332" y2="90" />
+          <line class="cka-axis-guide" x1="359" y1="210" x2="377" y2="210" />
+          <line class="cka-axis-guide" x1="315" y1="315" x2="332" y2="330" />
+          <line class="cka-axis-guide" x1="210" y1="359" x2="210" y2="377" />
+          <line class="cka-axis-guide" x1="105" y1="315" x2="88" y2="330" />
+          <line class="cka-axis-guide" x1="61" y1="210" x2="43" y2="210" />
+          <line class="cka-axis-guide" x1="105" y1="105" x2="88" y2="90" />
+          <text class="cka-axis-label" x="210" y="28" text-anchor="middle">GOVERNANCE</text>
+          <text class="cka-axis-label" x="347" y="84" text-anchor="start">IDENTITY</text>
+          <text class="cka-axis-label" x="394" y="214" text-anchor="end">PROVENANCE</text>
+          <text class="cka-axis-label" x="347" y="340" text-anchor="start">CONTENT</text>
+          <text class="cka-axis-label" x="210" y="399" text-anchor="middle">TAXONOMY</text>
+          <text class="cka-axis-label" x="73" y="340" text-anchor="end">QUALITY</text>
+          <text class="cka-axis-label" x="36" y="214" text-anchor="end">VALUE</text>
+          <text class="cka-axis-label" x="73" y="84" text-anchor="end">LINEAGE</text>
+        </svg>
+        <p class="cka-viz-note">Eight governed attributes surrounding one computed record. Hover segments or legend
+          items to inspect each attribute.</p>
+      </div>
+      <div class="cka-wheel-legend">
+        <div class="cka-legend-item cka-legend-item-1">
+          <div class="cka-legend-dot"></div>
+          <div>
+            <div class="cka-legend-name">Identity</div>
+            <div class="cka-legend-desc">Asset type, domain, transferability, and reach.</div>
+          </div>
+        </div>
+        <div class="cka-legend-item cka-legend-item-2">
+          <div class="cka-legend-dot"></div>
+          <div>
+            <div class="cka-legend-name">Provenance</div>
+            <div class="cka-legend-desc">Source authority, authorship, and origin chain.</div>
+          </div>
+        </div>
+        <div class="cka-legend-item cka-legend-item-3">
+          <div class="cka-legend-dot"></div>
+          <div>
+            <div class="cka-legend-name">Content</div>
+            <div class="cka-legend-desc">Governed structured knowledge in executable form.</div>
+          </div>
+        </div>
+        <div class="cka-legend-item cka-legend-item-4">
+          <div class="cka-legend-dot"></div>
+          <div>
+            <div class="cka-legend-name">Taxonomy</div>
+            <div class="cka-legend-desc">Living classification and concept alignment.</div>
+          </div>
+        </div>
+        <div class="cka-legend-item cka-legend-item-5">
+          <div class="cka-legend-dot"></div>
+          <div>
+            <div class="cka-legend-name">Quality</div>
+            <div class="cka-legend-desc">Confidence, currency, and consistency signals.</div>
+          </div>
+        </div>
+        <div class="cka-legend-item cka-legend-item-6">
+          <div class="cka-legend-dot"></div>
+          <div>
+            <div class="cka-legend-name">Value</div>
+            <div class="cka-legend-desc">Decision relevance, reuse rate, and impact trail.</div>
+          </div>
+        </div>
+        <div class="cka-legend-item cka-legend-item-7">
+          <div class="cka-legend-dot"></div>
+          <div>
+            <div class="cka-legend-name">Lineage</div>
+            <div class="cka-legend-desc">Full downstream history of decisions influenced.</div>
+          </div>
+        </div>
+        <div class="cka-legend-item cka-legend-item-8">
+          <div class="cka-legend-dot"></div>
+          <div>
+            <div class="cka-legend-name">Governance</div>
+            <div class="cka-legend-desc">Ownership, exception handling, and strategic alignment.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="standard-box fade-in">
+      <div class="standard-header">
+        <h3>The Common Knowledge Asset</h3>
+        <p>Every knowledge asset carries a structured record across <strong>eight governed attributes</strong>,
+          organised into <strong>three operating dimensions</strong>. Together this model shows what the organisation
+          knows, how reliable it is, and who is accountable when confidence drops.</p>
+        <div class="standard-key">
+          <span>8 governed attributes</span><span>3 operating dimensions</span><span>1 CKA record</span>
+        </div>
+      </div>
+      <div class="standard-body">
+        <div class="std-col std-col--classification">
+          <div class="std-col-label">Classification (4 attributes)</div>
+          <div class="std-row">
+            <div class="std-row-dot std-dot-1"></div>
+            <div class="std-row-text">
+              <div class="std-row-name">Identity</div>
+              <div class="std-row-desc">Asset type, domain, transferability, and reach of the knowledge unit.</div>
+            </div>
+          </div>
+          <div class="std-row">
+            <div class="std-row-dot std-dot-2"></div>
+            <div class="std-row-text">
+              <div class="std-row-name">Provenance</div>
+              <div class="std-row-desc">Source authority, authorship chain, and evidence origin history.</div>
+            </div>
+          </div>
+          <div class="std-row">
+            <div class="std-row-dot std-dot-3"></div>
+            <div class="std-row-text">
+              <div class="std-row-name">Content</div>
+              <div class="std-row-desc">Governed structured knowledge in executable, retrievable form.</div>
+            </div>
+          </div>
+          <div class="std-row">
+            <div class="std-row-dot std-dot-4"></div>
+            <div class="std-row-text">
+              <div class="std-row-name">Taxonomy</div>
+              <div class="std-row-desc">Living classification and concept alignment to current strategy.</div>
+            </div>
+          </div>
+        </div>
+        <div class="std-col std-col--measurement">
+          <div class="std-col-label">Measurement (3 attributes)</div>
+          <div class="std-row">
+            <div class="std-row-dot std-dot-5"></div>
+            <div class="std-row-text">
+              <div class="std-row-name">Quality</div>
+              <div class="std-row-desc">Confidence, consistency, and evidence integrity signals over time.</div>
+            </div>
+          </div>
+          <div class="std-row">
+            <div class="std-row-dot std-dot-6"></div>
+            <div class="std-row-text">
+              <div class="std-row-name">Value</div>
+              <div class="std-row-desc">Decision relevance, reuse performance, and measurable impact trail.</div>
+            </div>
+          </div>
+          <div class="std-row">
+            <div class="std-row-dot std-dot-7"></div>
+            <div class="std-row-text">
+              <div class="std-row-name">Lineage</div>
+              <div class="std-row-desc">Downstream decision history and dependency chain influenced by this asset.</div>
+            </div>
+          </div>
+        </div>
+        <div class="std-col std-col--governance">
+          <div class="std-col-label">Governance (1 attribute)</div>
+          <div class="std-row">
+            <div class="std-row-dot std-dot-8"></div>
+            <div class="std-row-text">
+              <div class="std-row-name">Governance</div>
+              <div class="std-row-desc">Ownership, exception handling, approval thresholds, and strategic alignment rules
+                defining what this asset is permitted to influence.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="standard-footer">
+        These eight CKA attributes are the governed record, not the score itself. The separate Knowledge Health Score is
+        computed from five scoring dimensions - Confidence, Currency, Usage, Concentration, and Alignment - and then
+        classifies the asset into Trust, Review, or Retire.
+      </div>
+    </div>
+
+    <h3 class="section-heading-compact">The knowledge lifecycle</h3>
+    <p class="lifecycle-intro">A Common Knowledge Asset tracks knowledge through its entire life - from ingestion to
+      retirement - updating its health score at every stage.</p>
+
+    <div class="lifecycle fade-in">
+      <div class="lc-track">
+        <div class="lc-stage">
+          <div class="lc-num">01</div>
+          <div class="lc-stage-label">Ingestion</div>
+          <div class="lc-stage-name">Captured</div>
+          <div class="lc-stage-desc">Knowledge enters the system through automated ingestion. Identity, type, and
+            provenance are recorded.</div>
+        </div>
+        <div class="lc-connector">→</div>
+        <div class="lc-stage active">
+          <div class="lc-num">02</div>
+          <div class="lc-stage-label">Processing</div>
+          <div class="lc-stage-name">Classified</div>
+          <div class="lc-stage-desc">Domain, reach, and transferability are automatically classified. Initial confidence
+            score is computed.</div>
+        </div>
+        <div class="lc-connector">→</div>
+        <div class="lc-stage active">
+          <div class="lc-num">03</div>
+          <div class="lc-stage-label">Active Use</div>
+          <div class="lc-stage-name">Governed</div>
+          <div class="lc-stage-desc">Assets are cited and challenged in practice. Conflicts and exceptions route to
+            human adjudication.</div>
+        </div>
+        <div class="lc-connector">→</div>
+        <div class="lc-stage">
+          <div class="lc-num">04</div>
+          <div class="lc-stage-label">Decay</div>
+          <div class="lc-stage-name">Reviewed</div>
+          <div class="lc-stage-desc">Currency drops below threshold. Owner is alerted. Revalidation, override, or
+            retirement is required.</div>
+        </div>
+        <div class="lc-connector">→</div>
+        <div class="lc-stage terminal">
+          <div class="lc-num">05</div>
+          <div class="lc-stage-label">Resolution</div>
+          <div class="lc-stage-name">Retired or Renewed</div>
+          <div class="lc-stage-desc">Asset is superseded, archived, or refreshed. Lineage preserved for future
+            reference.</div>
+        </div>
+      </div>
+      <div class="lc-footer">At every stage, the asset carries its full history - what it influenced, who used it, and
+        how its value changed over time.</div>
+    </div>
+  </div>
+
+  <div class="div-full"></div>
+
+  <footer>
+    <div>Knowledge Intelligence - A Founding Statement</div>
+    <div>Thought Leadership · Executive Audience</div>
+  </footer>
+  <script src="/assets/js/site.js" defer></script>
+</body>
+
+</html>
