@@ -10,22 +10,25 @@ permalink: /challenge.html
   <title>Knowledge Intelligence: The Challenge</title>
   <meta name="description" content="Explore why knowledge has resisted measurement, where governance frameworks fail, and the core risks organizations face today.">
   <link rel="canonical" href="https://knowledge-intelligence.dev/challenge.html">
+  <link rel="icon" type="image/svg+xml" href="/assets/images/ki-nav-icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=20260303-1">
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
   <nav aria-label="Main navigation">
     <div class="nav-logo"><a class="nav-logo-link" href="/">Knowledge Intelligence</a></div>
     <div class="nav-links">
       <a href="/assets.html">The Assets</a>
       <a href="/challenge.html">The Challenge</a>
+      <a href="/whynow.html">Why Now</a>
       <a href="/capability.html">The Capability</a>
       <a href="/framework.html">The Framework</a>
       <a href="/decisions.html">The Decisions</a>
@@ -33,194 +36,321 @@ permalink: /challenge.html
       <a href="/barriers.html">The Barriers</a>
     </div>
   </nav>
+  <main id="main-content">
   <!-- SECTION 2: THE MEASUREMENT PROBLEM -->
   <div class="sw section-measurement" id="challenge">
     <div class="section-tag">The Measurement Problem</div>
-    <h2>Why knowledge has resisted being governed until now.</h2>
+    <h1>Why knowledge has resisted being governed until now.</h1>
     <p>If knowledge is so clearly valuable, why has no framework for measuring and governing it yet emerged? Not for
       lack of interest. Knowledge presents genuinely hard problems that no existing system has been designed to solve.
       The cost of that gap is well documented, even if the solutions remain absent.</p>
-
-    <div class="mp-subhead">Observed impact</div>
-    <div class="stat-row fade-in">
-      <div class="stat-card">
-        <div class="stat-num">20%</div>
-        <div class="stat-desc">of the working week spent by knowledge workers searching for internal information and
-          tracking down colleagues who can help.</div>
-        <div class="stat-source">McKinsey Global Institute, The Social Economy, 2012</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">48%</div>
-        <div class="stat-desc">of executives agree that employees take critical knowledge about procedures and strategy
-          with them when they leave the organisation.</div>
-        <div class="stat-source">KMWorld Survey Report, 2024</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">75%</div>
-        <div class="stat-desc">of leaders say they do not trust their own data enough to use it confidently for
-          decision-making.</div>
-        <div class="stat-source">Dataversity / Gartner, 2025</div>
-      </div>
-    </div>
 
     <div class="mp-subhead">Value decay under no intervention</div>
     <div class="viz-decay fade-in">
       <div class="viz-decay-header">
         <div class="viz-label">Visualisation</div>
-        <div class="viz-title">Knowledge value decay over time - without governance intervention</div>
+        <div class="viz-title">Knowledge value decay over time — governed vs. ungoverned</div>
       </div>
-      <svg class="viz-decay-svg" viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <svg class="viz-decay-svg" viewBox="0 0 900 290" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" role="img" aria-labelledby="decayChartTitle decayChartDesc">
+        <title id="decayChartTitle">Knowledge value decay over time</title>
+        <desc id="decayChartDesc">Line chart showing two trajectories: an ungoverned path where knowledge value declines steeply to near zero over five years, and a governed path with periodic Review, Renew, and Validate interventions that maintain value well above baseline. The shaded area between curves represents the governance value gap.</desc>
         <defs>
-          <linearGradient id="decayGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#c8a84a" stop-opacity="0.18" />
-            <stop offset="100%" stop-color="#c8a84a" stop-opacity="0" />
+          <!-- Ungoverned area fill: red fade -->
+          <linearGradient id="ungoverGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c84c3c" stop-opacity="0.22" />
+            <stop offset="100%" stop-color="#c84c3c" stop-opacity="0.03" />
           </linearGradient>
+          <!-- Governed area fill: teal fade -->
+          <linearGradient id="governGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#22b9dc" stop-opacity="0.18" />
+            <stop offset="100%" stop-color="#22b9dc" stop-opacity="0.02" />
+          </linearGradient>
+          <!-- Value-gap fill between the two curves -->
+          <linearGradient id="gapGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#22b9dc" stop-opacity="0.10" />
+            <stop offset="100%" stop-color="#22b9dc" stop-opacity="0.02" />
+          </linearGradient>
+          <!-- Glow filter for intervention dots -->
+          <filter id="dotGlow" x="-60%" y="-60%" width="220%" height="220%">
+            <feGaussianBlur stdDeviation="3" result="blur" />
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
         </defs>
-        <!-- Grid lines -->
-        <line x1="60" y1="20" x2="60" y2="170" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
-        <line x1="60" y1="170" x2="880" y2="170" stroke="rgba(255,255,255,0.05)" stroke-width="1" />
-        <line x1="60" y1="60" x2="880" y2="60" stroke="rgba(255,255,255,0.04)" stroke-width="1"
-          stroke-dasharray="4 6" />
-        <line x1="60" y1="115" x2="880" y2="115" stroke="rgba(255,255,255,0.04)" stroke-width="1"
-          stroke-dasharray="4 6" />
-        <!-- Y-axis labels -->
-        <text x="50" y="23" fill="rgba(255,255,255,0.25)" font-size="9" text-anchor="end"
-          font-family="DM Sans,sans-serif">High</text>
-        <text x="50" y="118" fill="rgba(255,255,255,0.25)" font-size="9" text-anchor="end"
-          font-family="DM Sans,sans-serif">Med</text>
-        <text x="50" y="173" fill="rgba(255,255,255,0.25)" font-size="9" text-anchor="end"
-          font-family="DM Sans,sans-serif">Low</text>
-        <!-- Ungoverned decay area fill -->
-        <path d="M70,22 C120,22 160,30 240,65 C310,95 380,130 500,150 C620,168 750,172 880,174 L880,170 L70,170 Z"
-          fill="rgba(200,80,60,0.06)" />
-        <!-- Ungoverned decay line -->
+
+        <!-- ── AXES ─────────────────────────────────────────────── -->
+        <!-- Y-axis rule -->
+        <line x1="72" y1="22" x2="72" y2="210" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+        <!-- X-axis baseline -->
+        <line x1="72" y1="210" x2="886" y2="210" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+
+        <!-- ── GRID LINES (horizontal) ────────────────────────── -->
+        <line x1="72" y1="22"  x2="886" y2="22"  stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3 7" />
+        <line x1="72" y1="80"  x2="886" y2="80"  stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3 7" />
+        <line x1="72" y1="138" x2="886" y2="138" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3 7" />
+        <line x1="72" y1="196" x2="886" y2="196" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="3 7" />
+
+        <!-- ── Y-AXIS LABELS ────────────────────────────────────── -->
+        <text x="62" y="26"  fill="rgba(255,255,255,0.22)" font-size="9.5" text-anchor="end" font-family="Space Grotesk,sans-serif" font-weight="500" letter-spacing="0.04em">100%</text>
+        <text x="62" y="84"  fill="rgba(255,255,255,0.22)" font-size="9.5" text-anchor="end" font-family="Space Grotesk,sans-serif" font-weight="500" letter-spacing="0.04em">75%</text>
+        <text x="62" y="142" fill="rgba(255,255,255,0.22)" font-size="9.5" text-anchor="end" font-family="Space Grotesk,sans-serif" font-weight="500" letter-spacing="0.04em">50%</text>
+        <text x="62" y="200" fill="rgba(255,255,255,0.22)" font-size="9.5" text-anchor="end" font-family="Space Grotesk,sans-serif" font-weight="500" letter-spacing="0.04em">25%</text>
+        <!-- Y-axis title -->
+        <text x="12" y="116" fill="rgba(255,255,255,0.18)" font-size="9" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="600" letter-spacing="0.1em" transform="rotate(-90,12,116)">KNOWLEDGE VALUE</text>
+
+        <!-- ── X-AXIS YEAR LABELS ──────────────────────────────── -->
+        <text x="80"  y="226" fill="rgba(255,255,255,0.2)" font-size="9.5" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="500">Start</text>
+        <text x="234" y="226" fill="rgba(255,255,255,0.2)" font-size="9.5" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="500">Year 1</text>
+        <text x="388" y="226" fill="rgba(255,255,255,0.2)" font-size="9.5" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="500">Year 2</text>
+        <text x="542" y="226" fill="rgba(255,255,255,0.2)" font-size="9.5" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="500">Year 3</text>
+        <text x="696" y="226" fill="rgba(255,255,255,0.2)" font-size="9.5" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="500">Year 4</text>
+        <text x="850" y="226" fill="rgba(255,255,255,0.2)" font-size="9.5" text-anchor="middle" font-family="Space Grotesk,sans-serif" font-weight="500">Year 5</text>
+        <!-- X-axis tick marks -->
+        <line x1="234" y1="210" x2="234" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="388" y1="210" x2="388" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="542" y1="210" x2="542" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="696" y1="210" x2="696" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <line x1="850" y1="210" x2="850" y2="216" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+        <!-- ── UNGOVERNED AREA FILL ────────────────────────────── -->
+        <!-- Curve: starts at full value, decays steeply to ~18% by year 5 -->
+        <path d="M80,22 C130,22 185,35 260,72 C330,106 400,145 510,172 C620,196 730,203 880,207 L880,210 L80,210 Z"
+          fill="url(#ungoverGrad)" />
+
+        <!-- ── GOVERNANCE VALUE GAP (shaded area between curves) ── -->
+        <!-- Top boundary = governed path, bottom = ungoverned path -->
+        <path class="decay-dot decay-delay-1" opacity="0"
+          d="M80,22 C130,22 188,38 248,62 C290,78 318,74 360,56 C396,40 418,36 474,56 C514,70 536,66 586,48 C626,34 650,32 712,52 C754,66 782,64 840,46 C862,38 874,36 880,36
+             L880,207 C730,203 620,196 510,172 C400,145 330,106 260,72 C185,35 130,22 80,22 Z"
+          fill="url(#gapGrad)" />
+
+        <!-- ── UNGOVERNED DECAY LINE ───────────────────────────── -->
         <path class="decay-path decay-ungoverned"
-          d="M70,22 C120,22 160,30 240,65 C310,95 380,130 500,150 C620,168 750,172 880,174" fill="none"
-          stroke="rgba(200,80,60,0.5)" stroke-width="2" />
-        <!-- Governed with intervention line -->
+          d="M80,22 C130,22 185,35 260,72 C330,106 400,145 510,172 C620,196 730,203 880,207"
+          fill="none" stroke="rgba(200,76,60,0.65)" stroke-width="2.5" stroke-linecap="round" />
+
+        <!-- ── GOVERNED PATH AREA FILL ────────────────────────── -->
+        <path class="decay-dot decay-delay-1" opacity="0"
+          d="M80,22 C130,22 188,38 248,62 C290,78 318,74 360,56 C396,40 418,36 474,56 C514,70 536,66 586,48 C626,34 650,32 712,52 C754,66 782,64 840,46 C862,38 874,36 880,36 L880,210 L80,210 Z"
+          fill="url(#governGrad)" />
+
+        <!-- ── GOVERNED WITH INTERVENTION LINE ───────────────── -->
+        <!-- Sawtooth-wave pattern: dips slightly between interventions, resets at each one -->
         <path class="decay-path decay-governed"
-          d="M70,22 C120,22 170,38 230,60 C270,75 290,72 340,55 C380,42 400,40 460,58 C500,70 520,68 570,52 C610,40 630,38 690,56 C730,68 760,67 820,50 C850,43 870,40 880,40"
-          fill="none" stroke="rgba(103,212,135,0.78)" stroke-width="2" stroke-dasharray="1000"
-          stroke-dashoffset="1000" />
-        <!-- Intervention points -->
-        <circle cx="340" cy="55" r="5" fill="#67d487" opacity="0" class="decay-dot decay-delay-1" />
-        <circle cx="570" cy="52" r="5" fill="#67d487" opacity="0" class="decay-dot decay-delay-2" />
-        <circle cx="820" cy="50" r="5" fill="#67d487" opacity="0" class="decay-dot decay-delay-3" />
-        <!-- Intervention labels -->
-        <text x="340" y="46" fill="rgba(103,212,135,0.85)" font-size="9" text-anchor="middle"
-          font-family="Syne,sans-serif" font-weight="700" opacity="0" class="decay-dot decay-delay-1">Review</text>
-        <text x="570" y="43" fill="rgba(103,212,135,0.85)" font-size="9" text-anchor="middle"
-          font-family="Syne,sans-serif" font-weight="700" opacity="0" class="decay-dot decay-delay-2">Renew</text>
-        <text x="820" y="41" fill="rgba(103,212,135,0.85)" font-size="9" text-anchor="middle"
-          font-family="Syne,sans-serif" font-weight="700" opacity="0" class="decay-dot decay-delay-3">Validate</text>
-        <!-- Legend -->
-        <line x1="70" y1="190" x2="110" y2="190" stroke="rgba(200,80,60,0.5)" stroke-width="2" />
-        <text x="116" y="193" fill="rgba(255,255,255,0.3)" font-size="9"
-          font-family="DM Sans,sans-serif">Ungoverned</text>
-        <line x1="230" y1="190" x2="270" y2="190" stroke="rgba(103,212,135,0.78)" stroke-width="2"
-          stroke-dasharray="4 3" />
-        <text x="276" y="193" fill="rgba(255,255,255,0.3)" font-size="9" font-family="DM Sans,sans-serif">Governed with
-          intervention</text>
+          d="M80,22 C130,22 188,38 248,62 C290,78 318,74 360,56 C396,40 418,36 474,56 C514,70 536,66 586,48 C626,34 650,32 712,52 C754,66 782,64 840,46 C862,38 874,36 880,36"
+          fill="none" stroke="rgba(34,185,220,0.85)" stroke-width="2.5" stroke-linecap="round"
+          stroke-dasharray="1200" stroke-dashoffset="1200" />
+
+        <!-- ── INTERVENTION VERTICAL GUIDES ───────────────────── -->
+        <line cx="360" cy="56" x1="360" y1="56" x2="360" y2="210"
+          stroke="rgba(34,185,220,0.12)" stroke-width="1" stroke-dasharray="3 5"
+          opacity="0" class="decay-dot decay-delay-1" />
+        <line cx="586" cy="48" x1="586" y1="48" x2="586" y2="210"
+          stroke="rgba(34,185,220,0.12)" stroke-width="1" stroke-dasharray="3 5"
+          opacity="0" class="decay-dot decay-delay-2" />
+        <line cx="840" cy="46" x1="840" y1="46" x2="840" y2="210"
+          stroke="rgba(34,185,220,0.12)" stroke-width="1" stroke-dasharray="3 5"
+          opacity="0" class="decay-dot decay-delay-3" />
+
+        <!-- ── INTERVENTION POINTS + LABELS ───────────────────── -->
+        <!-- Review -->
+        <circle cx="360" cy="56" r="6" fill="#07080f" stroke="rgba(34,185,220,0.9)" stroke-width="2"
+          opacity="0" class="decay-dot decay-delay-1" filter="url(#dotGlow)" />
+        <circle cx="360" cy="56" r="2.5" fill="rgba(34,185,220,0.9)"
+          opacity="0" class="decay-dot decay-delay-1" />
+        <rect x="316" y="32" width="88" height="18" rx="3"
+          fill="rgba(7,8,15,0.85)" stroke="rgba(34,185,220,0.35)" stroke-width="1"
+          opacity="0" class="decay-dot decay-delay-1" />
+        <text x="360" y="44" fill="rgba(34,185,220,0.95)" font-size="9.5" text-anchor="middle"
+          font-family="Space Grotesk,sans-serif" font-weight="700" letter-spacing="0.06em"
+          opacity="0" class="decay-dot decay-delay-1">REVIEW</text>
+
+        <!-- Renew -->
+        <circle cx="586" cy="48" r="6" fill="#07080f" stroke="rgba(34,185,220,0.9)" stroke-width="2"
+          opacity="0" class="decay-dot decay-delay-2" filter="url(#dotGlow)" />
+        <circle cx="586" cy="48" r="2.5" fill="rgba(34,185,220,0.9)"
+          opacity="0" class="decay-dot decay-delay-2" />
+        <rect x="542" y="24" width="88" height="18" rx="3"
+          fill="rgba(7,8,15,0.85)" stroke="rgba(34,185,220,0.35)" stroke-width="1"
+          opacity="0" class="decay-dot decay-delay-2" />
+        <text x="586" y="36" fill="rgba(34,185,220,0.95)" font-size="9.5" text-anchor="middle"
+          font-family="Space Grotesk,sans-serif" font-weight="700" letter-spacing="0.06em"
+          opacity="0" class="decay-dot decay-delay-2">RENEW</text>
+
+        <!-- Validate -->
+        <circle cx="840" cy="46" r="6" fill="#07080f" stroke="rgba(34,185,220,0.9)" stroke-width="2"
+          opacity="0" class="decay-dot decay-delay-3" filter="url(#dotGlow)" />
+        <circle cx="840" cy="46" r="2.5" fill="rgba(34,185,220,0.9)"
+          opacity="0" class="decay-dot decay-delay-3" />
+        <rect x="790" y="22" width="100" height="18" rx="3"
+          fill="rgba(7,8,15,0.85)" stroke="rgba(34,185,220,0.35)" stroke-width="1"
+          opacity="0" class="decay-dot decay-delay-3" />
+        <text x="840" y="34" fill="rgba(34,185,220,0.95)" font-size="9.5" text-anchor="middle"
+          font-family="Space Grotesk,sans-serif" font-weight="700" letter-spacing="0.06em"
+          opacity="0" class="decay-dot decay-delay-3">VALIDATE</text>
+
+        <!-- ── DELTA CALLOUT: governance value gap label ─────── -->
+        <text x="660" y="130" fill="rgba(34,185,220,0.35)" font-size="10" text-anchor="middle"
+          font-family="Space Grotesk,sans-serif" font-weight="600" letter-spacing="0.08em"
+          opacity="0" class="decay-dot decay-delay-3">Governance value gap</text>
+        <line x1="660" y1="133" x2="660" y2="163"
+          stroke="rgba(34,185,220,0.2)" stroke-width="1"
+          opacity="0" class="decay-dot decay-delay-3" />
+
+        <!-- ── LEGEND ───────────────────────────────────────────── -->
+        <line x1="80"  y1="252" x2="118" y2="252" stroke="rgba(200,76,60,0.65)" stroke-width="2.5" stroke-linecap="round" />
+        <text x="124" y="256" fill="rgba(255,255,255,0.35)" font-size="9.5" font-family="Space Grotesk,sans-serif" font-weight="500">Ungoverned decay</text>
+        <line x1="272" y1="252" x2="310" y2="252" stroke="rgba(34,185,220,0.85)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="5 3" />
+        <text x="316" y="256" fill="rgba(255,255,255,0.35)" font-size="9.5" font-family="Space Grotesk,sans-serif" font-weight="500">Governed with intervention</text>
+        <rect x="530" y="244" width="12" height="12" rx="2" fill="rgba(34,185,220,0.12)" stroke="rgba(34,185,220,0.25)" stroke-width="1" />
+        <text x="548" y="256" fill="rgba(255,255,255,0.35)" font-size="9.5" font-family="Space Grotesk,sans-serif" font-weight="500">Value gap preserved by governance</text>
       </svg>
-      <div class="viz-decay-footer">Knowledge depreciates against context change. Governance intervention - review,
-        renewal, validation - resets the value curve rather than letting it decay to noise.</div>
+      <div class="viz-decay-footer">Knowledge depreciates against context change. Governance intervention — review, renewal, validation — resets the value curve rather than allowing it to decay to noise. The shaded gap represents recoverable value.</div>
     </div>
 
     <div class="mp-subhead">Evidence from practice</div>
-    <div class="expert-quote founding-statement fade-in">
-      <div class="fs-label">Founding Statement</div>
-      <p>Most enterprise value now sits in assets that are invisible on the balance sheet and vulnerable to silent
-        decay.</p>
-      <div class="expert-quote-attr"><strong>Tommy Lowe</strong> - Knowledge Intelligence</div>
+    <blockquote class="ch-pull-quote fade-in">
+      <p>Most enterprise value now sits in assets that are invisible on the balance sheet and vulnerable to silent decay.</p>
+      <cite>Tommy Lowe &mdash; Knowledge Intelligence</cite>
+    </blockquote>
+
+    <div class="ch-stat-trio fade-in">
+      <div class="ch-stat" data-accent="blue">
+        <i data-lucide="building-2" aria-hidden="true"></i>
+        <div class="ch-stat-num">84–91<span>%</span></div>
+        <p>of S&amp;P 500 market value is intangible — knowledge is its core driver.</p>
+        <div class="ch-stat-src">Ocean Tomo, 2015–2020</div>
+      </div>
+      <div class="ch-stat" data-accent="warn">
+        <i data-lucide="user-minus" aria-hidden="true"></i>
+        <div class="ch-stat-num">48<span>%</span></div>
+        <p>of executives confirm critical knowledge leaves with departing people every year.</p>
+        <div class="ch-stat-src">KMWorld, 2024</div>
+      </div>
+      <div class="ch-stat" data-accent="danger">
+        <i data-lucide="shield-off" aria-hidden="true"></i>
+        <div class="ch-stat-num">75<span>%</span></div>
+        <p>of leaders do not trust their own data enough to act on it with confidence.</p>
+        <div class="ch-stat-src">Dataversity / Gartner, 2025</div>
+      </div>
     </div>
 
-    <div class="evidence-strip fade-in">
-      <div class="evidence-card">
-        <div class="evidence-stat">84-91<span>%</span></div>
-        <p class="evidence-copy">Estimated share of S&amp;P 500 market value represented by intangible assets, where
-          knowledge is a core value driver.</p>
-        <div class="evidence-source">Ocean Tomo analyses (2015-2020)</div>
+    <div class="ch-volatility fade-in">
+      <div class="ch-vol-intro">
+        <div class="ch-vol-label">Why volatility matters</div>
+        <p>Knowledge value does not fail all at once. It leaks through attrition, drifts through outdated assumptions, and degrades when confidence is not governed. The governance problem is not storage. It is continuous validity.</p>
       </div>
-      <div class="evidence-card">
-        <div class="evidence-stat">48<span>%</span></div>
-        <p class="evidence-copy">of executives agree critical procedural and strategic knowledge walks out the door when
-          people leave.</p>
-        <div class="evidence-source">KMWorld, 2024</div>
-      </div>
-      <div class="evidence-card">
-        <div class="evidence-stat">75<span>%</span></div>
-        <p class="evidence-copy">of leaders report they do not trust their data enough for confident decision-making at
-          the point of action.</p>
-        <div class="evidence-source">Dataversity / Gartner, 2025</div>
-      </div>
-    </div>
-
-    <div class="volatility-block fade-in">
-      <div class="volatility-head">Why volatility matters</div>
-      <p class="volatility-copy">Knowledge value does not fail all at once. It
-        leaks through attrition, drifts through outdated assumptions, and degrades when confidence is not governed. The
-        governance problem is not storage. It is continuous validity.</p>
-      <div class="volatility-grid">
-        <div class="vol-card">
-          <h4>Attrition Risk</h4>
-          <p>Critical know-how leaves with individuals unless transfer is instrumented and owned.</p>
-        </div>
-        <div class="vol-card">
-          <h4>Context Drift</h4>
-          <p>Previously valid knowledge becomes wrong as market, regulation, and strategy change.</p>
-        </div>
-        <div class="vol-card">
-          <h4>Confidence Blindness</h4>
-          <p>Ungoverned sources receive equal weight, making low-confidence claims look decision-safe.</p>
-        </div>
-      </div>
+      <ul class="ch-vol-risks">
+        <li>
+          <span class="ch-vol-icon"><i data-lucide="user-x" aria-hidden="true"></i></span>
+          <div>
+            <h4>Attrition Risk</h4>
+            <p>Critical know-how leaves with individuals unless transfer is instrumented and owned.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ch-vol-icon"><i data-lucide="git-branch" aria-hidden="true"></i></span>
+          <div>
+            <h4>Context Drift</h4>
+            <p>Previously valid knowledge becomes wrong as market, regulation, and strategy change.</p>
+          </div>
+        </li>
+        <li>
+          <span class="ch-vol-icon"><i data-lucide="eye-off" aria-hidden="true"></i></span>
+          <div>
+            <h4>Confidence Blindness</h4>
+            <p>Ungoverned sources receive equal weight, making low-confidence claims look decision-safe.</p>
+          </div>
+        </li>
+      </ul>
     </div>
 
     <div class="mp-subhead">Why current frameworks break down</div>
-    <div class="challenge-list challenge-helix fade-in">
-      <div class="c-item">
-        <div class="c-num">01</div>
-        <div>
-          <h3>Knowledge has no agreed unit of measure</h3>
-          <p>A decade of domain expertise, a library of validated research, and a set of informal but critical
-            relationships - how do you compare these? How do you decide which to invest in, which to protect, which is
-            at risk? Without a shared way of measuring knowledge, these decisions remain matters of instinct rather than
-            evidence. Governance without measurement is just guesswork.</p>
-        </div>
+    <div class="diag-panel fade-in" aria-label="Governance diagnostic findings">
+      <div class="diag-panel-bar">
+        <span class="diag-bar-label">KI · Governance Diagnostic</span>
+        <span class="diag-bar-status"><span class="diag-dot"></span>4 critical gaps identified</span>
       </div>
-      <div class="c-item">
-        <div class="c-num">02</div>
-        <div>
-          <h3>Tacit knowledge is invisible to existing systems</h3>
-          <p>The enterprise content stack can only work with what has been written down and captured. The expertise in
-            people's heads, the institutional memory embedded in practice, the relationships that determine how
-            decisions really get made: none of these show up in any current platform. They are the largest and most
-            valuable part of the knowledge estate, and they are entirely unmeasured. APQC's 2024 research identified
-            tacit knowledge capture as the most urgent priority for knowledge management teams precisely because the gap
-            is now widely felt, even if it is not yet closed.<span class="cite">APQC, 2024</span></p>
-        </div>
-      </div>
-      <div class="c-item">
-        <div class="c-num">03</div>
-        <div>
-          <h3>Knowledge value is context-dependent</h3>
-          <p>A piece of knowledge can be highly valuable in one context and irrelevant in another. Its value is also
-            dynamic. It depreciates as conditions change, and appreciates as it becomes more applicable. Static asset
-            valuation frameworks are not designed for assets whose value shifts continuously in response to context.</p>
-        </div>
-      </div>
-      <div class="c-item">
-        <div class="c-num">04</div>
-        <div>
-          <h3>Confidence is absent from all current frameworks</h3>
-          <p>Even where knowledge has been captured, no current framework distinguishes between what an organisation
-            knows with high confidence and what it merely believes, assumes, or has recorded without validation. All
-            explicit knowledge is treated as equally credible. A document from five years ago carries the same implicit
-            authority as one validated last week. An unverified assumption carries the same weight as a tested finding.
-            This means none of it is truly governed - and when AI operates on ungoverned knowledge, low-confidence
-            outputs become indistinguishable from high-confidence ones.</p>
-        </div>
-      </div>
+      <ol class="diag-list">
+        <li class="diag-row" data-gap="01">
+          <div class="diag-meta">
+            <span class="diag-code">KGF‑001</span>
+            <span class="diag-tag">Measurement</span>
+          </div>
+          <div class="diag-body">
+            <h3>Knowledge has no agreed unit of measure</h3>
+            <p>A decade of domain expertise, a library of validated research, and a set of informal but critical
+              relationships — how do you compare these? How do you decide which to invest in, which to protect, which is
+              at risk? Without a shared way of measuring knowledge, these decisions remain matters of instinct rather than
+              evidence. Governance without measurement is just guesswork.</p>
+          </div>
+          <div class="diag-severity" aria-label="Critical severity">
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-label">Critical</span>
+          </div>
+        </li>
+        <li class="diag-row" data-gap="02">
+          <div class="diag-meta">
+            <span class="diag-code">KGF‑002</span>
+            <span class="diag-tag">Visibility</span>
+          </div>
+          <div class="diag-body">
+            <h3>Tacit knowledge is invisible to existing systems</h3>
+            <p>The enterprise content stack can only work with what has been written down and captured. The expertise in
+              people's heads, the institutional memory embedded in practice, the relationships that determine how
+              decisions really get made: none of these show up in any current platform. They are the largest and most
+              valuable part of the knowledge estate, and they are entirely unmeasured. APQC's 2024 research identified
+              tacit knowledge capture as the most urgent priority for knowledge management teams precisely because the gap
+              is now widely felt, even if it is not yet closed.<span class="cite">APQC, 2024</span></p>
+          </div>
+          <div class="diag-severity" aria-label="Critical severity">
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-label">Critical</span>
+          </div>
+        </li>
+        <li class="diag-row" data-gap="03">
+          <div class="diag-meta">
+            <span class="diag-code">KGF‑003</span>
+            <span class="diag-tag">Valuation</span>
+          </div>
+          <div class="diag-body">
+            <h3>Knowledge value is context-dependent</h3>
+            <p>A piece of knowledge can be highly valuable in one context and irrelevant in another. Its value is also
+              dynamic. It depreciates as conditions change, and appreciates as it becomes more applicable. Static asset
+              valuation frameworks are not designed for assets whose value shifts continuously in response to context.</p>
+          </div>
+          <div class="diag-severity" aria-label="High severity">
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-bar diag-sev-bar--dim"></span>
+            <span class="diag-sev-label diag-sev-label--high">High</span>
+          </div>
+        </li>
+        <li class="diag-row" data-gap="04">
+          <div class="diag-meta">
+            <span class="diag-code">KGF‑004</span>
+            <span class="diag-tag">Confidence</span>
+          </div>
+          <div class="diag-body">
+            <h3>Confidence is absent from all current frameworks</h3>
+            <p>Even where knowledge has been captured, no current framework distinguishes between what an organisation
+              knows with high confidence and what it merely believes, assumes, or has recorded without validation. All
+              explicit knowledge is treated as equally credible. A document from five years ago carries the same implicit
+              authority as one validated last week. An unverified assumption carries the same weight as a tested finding.
+              This means none of it is truly governed — and when AI operates on ungoverned knowledge, low-confidence
+              outputs become indistinguishable from high-confidence ones.</p>
+          </div>
+          <div class="diag-severity" aria-label="Critical severity">
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-bar"></span>
+            <span class="diag-sev-label">Critical</span>
+          </div>
+        </li>
+      </ol>
     </div>
 
     <div class="mp-subhead">Tacit concentration risk topology</div>
@@ -234,42 +364,52 @@ permalink: /challenge.html
       </div>
       <p class="heatmap-intro">Domains where critical knowledge is
         held tacitly by few individuals - the invisible risk topology most organisations cannot currently see.</p>
-      <div class="hm-grid">
-        <div class="hm-cell hm-cell-spacer"></div>
-        <div class="hm-col-header">Strategy &amp;<br>Direction</div>
-        <div class="hm-col-header">Technical<br>Expertise</div>
-        <div class="hm-col-header">Client<br>Relationships</div>
-        <div class="hm-col-header">Regulatory<br>Knowledge</div>
-        <div class="hm-col-header">Process<br>Memory</div>
-        <!-- Row: High tacit, high value -->
-        <div class="hm-axis-label">High value,<br>High tacit</div>
-        <div class="hm-cell hm-crit">Critical</div>
-        <div class="hm-cell hm-crit">Critical</div>
-        <div class="hm-cell hm-high">High</div>
-        <div class="hm-cell hm-high">High</div>
-        <div class="hm-cell hm-crit">Critical</div>
-        <!-- Row: High value, med tacit -->
-        <div class="hm-axis-label">High value,<br>Med tacit</div>
-        <div class="hm-cell hm-high">High</div>
-        <div class="hm-cell hm-med">Med</div>
-        <div class="hm-cell hm-crit">Critical</div>
-        <div class="hm-cell hm-med">Med</div>
-        <div class="hm-cell hm-high">High</div>
-        <!-- Row: Med value -->
-        <div class="hm-axis-label">Med value,<br>Low tacit</div>
-        <div class="hm-cell hm-med">Med</div>
-        <div class="hm-cell hm-low">Low</div>
-        <div class="hm-cell hm-med">Med</div>
-        <div class="hm-cell hm-low">Low</div>
-        <div class="hm-cell hm-med">Med</div>
-        <!-- Row: Low -->
-        <div class="hm-axis-label">Low value,<br>Low tacit</div>
-        <div class="hm-cell hm-low">-</div>
-        <div class="hm-cell hm-low">Low</div>
-        <div class="hm-cell hm-low">-</div>
-        <div class="hm-cell hm-low">Low</div>
-        <div class="hm-cell hm-low">-</div>
-      </div>
+      <table class="hm-grid" role="grid" aria-label="Tacit concentration risk by knowledge domain and value">
+        <thead>
+          <tr>
+            <th class="hm-cell hm-cell-spacer" aria-label="Risk level by value and tacit concentration"></th>
+            <th class="hm-col-header" scope="col">Strategy &amp;<br>Direction</th>
+            <th class="hm-col-header" scope="col">Technical<br>Expertise</th>
+            <th class="hm-col-header" scope="col">Client<br>Relationships</th>
+            <th class="hm-col-header" scope="col">Regulatory<br>Knowledge</th>
+            <th class="hm-col-header" scope="col">Process<br>Memory</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th class="hm-axis-label" scope="row">High value,<br>High tacit</th>
+            <td class="hm-cell hm-crit">Critical</td>
+            <td class="hm-cell hm-crit">Critical</td>
+            <td class="hm-cell hm-high">High</td>
+            <td class="hm-cell hm-high">High</td>
+            <td class="hm-cell hm-crit">Critical</td>
+          </tr>
+          <tr>
+            <th class="hm-axis-label" scope="row">High value,<br>Med tacit</th>
+            <td class="hm-cell hm-high">High</td>
+            <td class="hm-cell hm-med">Med</td>
+            <td class="hm-cell hm-crit">Critical</td>
+            <td class="hm-cell hm-med">Med</td>
+            <td class="hm-cell hm-high">High</td>
+          </tr>
+          <tr>
+            <th class="hm-axis-label" scope="row">Med value,<br>Low tacit</th>
+            <td class="hm-cell hm-med">Med</td>
+            <td class="hm-cell hm-low">Low</td>
+            <td class="hm-cell hm-med">Med</td>
+            <td class="hm-cell hm-low">Low</td>
+            <td class="hm-cell hm-med">Med</td>
+          </tr>
+          <tr>
+            <th class="hm-axis-label" scope="row">Low value,<br>Low tacit</th>
+            <td class="hm-cell hm-low">-</td>
+            <td class="hm-cell hm-low">Low</td>
+            <td class="hm-cell hm-low">-</td>
+            <td class="hm-cell hm-low">Low</td>
+            <td class="hm-cell hm-low">-</td>
+          </tr>
+        </tbody>
+      </table>
       <div class="hm-legend">
         <div class="hm-legend-item">
           <div class="hm-legend-swatch hm-legend-swatch-critical"></div>Critical risk - govern immediately
@@ -303,143 +443,19 @@ permalink: /challenge.html
   </div>
 
   <div class="div-full"></div>
+  </main>
 
-  <!-- SECTION 3: WHY NOW -->
-  <div class="sw" id="whynow">
-    <div class="section-tag">Why Now</div>
-    <h2>Three conditions have converged to make this both necessary and possible.</h2>
-    <p>AI can only be as good as the knowledge it runs on. Right now, many organisations have the models but not the
-      knowledge quality or governance needed for reliable output. That is why Knowledge Intelligence is needed now.</p>
-
-    <div class="challenge-list challenge-journey fade-in">
-      <div class="journey-map">
-        <svg class="journey-track" viewBox="0 0 1200 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <path class="jt-channel seg-a" d="M 192 176 C 308 178, 410 118, 540 129" />
-          <path class="jt-channel seg-b" d="M 660 129 C 762 154, 872 194, 1008 176" />
-          <path class="jt-base seg-a" d="M 192 176 C 308 178, 410 118, 540 129" />
-          <path class="jt-base seg-b" d="M 660 129 C 762 154, 872 194, 1008 176" />
-          <path class="jt-progress seg-a" d="M 192 176 C 308 178, 410 118, 540 129" />
-          <path class="jt-progress seg-b" d="M 660 129 C 762 154, 872 194, 1008 176" />
-        </svg>
-        <div class="journey-markers" aria-hidden="true">
-          <div class="journey-marker m1">01 · Scale</div>
-          <div class="journey-marker m2">02 · Quality</div>
-          <div class="journey-marker m3">03 · Confidence</div>
-        </div>
-        <div class="journey-nodes">
-          <div class="journey-node" data-step="01" role="presentation" aria-hidden="true">
-            <span class="journey-core"><i class="journey-icon" data-lucide="network" aria-hidden="true"></i></span>
-          </div>
-          <div class="journey-node" data-step="02" role="presentation" aria-hidden="true">
-            <span class="journey-core"><i class="journey-icon" data-lucide="cpu" aria-hidden="true"></i></span>
-          </div>
-          <div class="journey-node" data-step="03" role="presentation" aria-hidden="true">
-            <span class="journey-core"><i class="journey-icon" data-lucide="shield-check" aria-hidden="true"></i></span>
-          </div>
-        </div>
-      </div>
-      <div class="journey-cards">
-        <article class="journey-card">
-          <div class="journey-kicker">01 · Scale</div>
-          <h3>Content estates have reached meaningful scale</h3>
-          <p>Large organisations now hold content estates of sufficient volume and variety that patterns within them are
-            genuinely significant. The signal-to-noise challenge is no longer a niche concern. It is a primary
-            operational and strategic condition, and the estate is large enough that intelligence extracted from it
-            carries real strategic weight.</p>
-        </article>
-        <article class="journey-card">
-          <div class="journey-kicker">02 · Quality</div>
-          <h3>AI performance is downstream of knowledge quality</h3>
-          <p>AI now extracts meaning from large estates with far less manual effort. But faster processing does not fix
-            poor sources, missing context, or stale knowledge. 78% of organisations now use AI in at least one business
-            function,<span class="cite">McKinsey, 2025</span> yet many still struggle to scale trusted use because
-            output quality is limited by knowledge quality. The organisations struggling to realise value from their AI
-            investment are, in most cases, struggling because the knowledge foundations beneath their AI are ungoverned.
-          </p>
-        </article>
-        <article class="journey-card">
-          <div class="journey-kicker">03 · Confidence</div>
-          <h3>Decision stakes have raised the bar for confidence</h3>
-          <p>In a fast-moving environment, wrong answers are expensive. Leaders need more than speed. They need
-            <strong>justified confidence</strong>: evidence they can inspect, challenge, and defend before acting. 75%
-            of leaders say they do not trust their own data enough to act on it confidently.<span
-              class="cite">Dataversity / Gartner, 2025</span> The problem is not access to information. It is the
-            absence of any framework for knowing whether to trust it.
-          </p>
-        </article>
-      </div>
-    </div>
-
-    <div class="ai-panel fade-in">
-      <div class="ai-panel-header">
-        <div class="ai-title">The AI Inflection</div>
-        <h3>AI performance is downstream of knowledge quality.</h3>
-        <p>Generative AI did not create the knowledge problem. It exposed it. AI systems inherit the condition of the
-          knowledge estate beneath them. Knowledge Intelligence makes that condition measurable and governable.</p>
-        <div class="ai-formula" role="presentation">
-          <div class="af-term">
-            <span class="af-label">Output</span>
-            <span class="af-value">AI Output<br>Quality</span>
-          </div>
-          <span class="af-eq">=</span>
-          <div class="af-term known">
-            <span class="af-label">You have this</span>
-            <span class="af-value">Model<br>Capability</span>
-          </div>
-          <span class="af-op">×</span>
-          <div class="af-term missing">
-            <span class="af-label">Missing</span>
-            <span class="af-value">Knowledge<br>Quality</span>
-          </div>
-          <span class="af-op">×</span>
-          <div class="af-term missing">
-            <span class="af-label">Missing</span>
-            <span class="af-value">Governance<br>Discipline</span>
-          </div>
-        </div>
-      </div>
-      <div class="ai-grid">
-        <div class="ai-cell">
-          <div class="ai-kicker">What AI is doing</div>
-          <ul class="ai-bullets">
-            <li>Moving from search responses to generated responses.</li>
-            <li>Producing output faster than teams can manually check.</li>
-            <li>Increasing the volume of decision support in daily work.</li>
-            <li>Reducing time to answer, but not automatically improving trust.</li>
-          </ul>
-        </div>
-        <div class="ai-cell">
-          <div class="ai-kicker">What the knowledge estate looks like</div>
-          <ul class="ai-bullets">
-            <li>Fragmented content, inconsistent structure, low signal-to-noise.</li>
-            <li>Taxonomies decay. Context and provenance are often unclear.</li>
-            <li>Tacit expertise is concentrated and invisible to systems.</li>
-            <li>Trust is implicit - and therefore unmanaged at scale.</li>
-          </ul>
-        </div>
-        <div class="ai-cell impact">
-          <div class="ai-kicker">What happens without KI</div>
-          <ul class="ai-bullets">
-            <li>Inconsistent answers delivered with convincing fluency.</li>
-            <li>Decision risk amplified by the scale AI enables.</li>
-            <li>Low confidence becomes compounding operational drag.</li>
-            <li>AI value stalls exactly where knowledge foundations are weakest.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="ai-foot"><strong>Knowledge Intelligence</strong> adds the missing layer: confidence signals, traceable
-        provenance, lifecycle governance, and clear rules for what knowledge is allowed to influence.</div>
-    </div>
-  </div>
-
-  <div class="div-full"></div>
-
-  <footer>
-    <div>Knowledge Intelligence - A Founding Statement</div>
-    <div>Thought Leadership · Executive Audience</div>
-  </footer>
-  <script src="/assets/js/site.js" defer></script>
+  <nav class="chapter-nav-strip" aria-label="Chapter navigation">
+    <a class="chapter-nav-prev" href="/assets.html">
+      <span class="chapter-nav-label">Previous</span>
+      <span class="chapter-nav-title">The Assets</span>
+    </a>
+    <a class="chapter-nav-next" href="/whynow.html">
+      <span class="chapter-nav-label">Next</span>
+      <span class="chapter-nav-title">Why Now</span>
+    </a>
+  </nav>
+  <script src="/assets/js/site.js?v=20260303-1" defer></script>
 </body>
 
 </html>

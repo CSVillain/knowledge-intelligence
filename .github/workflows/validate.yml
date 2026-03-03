@@ -29,6 +29,7 @@ jobs:
             _site/index.html \
             _site/assets.html \
             _site/challenge.html \
+            _site/whynow.html \
             _site/capability.html \
             _site/framework.html \
             _site/decisions.html \
@@ -36,8 +37,7 @@ jobs:
             _site/barriers.html \
             _site/assets/css/site.css \
             _site/assets/js/site.js \
-            _site/assets/images/network.png \
-            _site/assets/images/kore-logo-horizontal-gradient-dark.svg; do
+            _site/assets/images/network.png; do
             test -f "$f" || { echo "Missing expected file: $f"; exit 1; }
           done
 
@@ -50,6 +50,7 @@ jobs:
               "_site/index.html",
               "_site/assets.html",
               "_site/challenge.html",
+              "_site/whynow.html",
               "_site/capability.html",
               "_site/framework.html",
               "_site/decisions.html",
@@ -59,6 +60,7 @@ jobs:
           nav_targets = [
               "/assets.html",
               "/challenge.html",
+              "/whynow.html",
               "/capability.html",
               "/framework.html",
               "/decisions.html",
@@ -69,6 +71,7 @@ jobs:
               "_site/index.html": "https://knowledge-intelligence.dev/",
               "_site/assets.html": "https://knowledge-intelligence.dev/assets.html",
               "_site/challenge.html": "https://knowledge-intelligence.dev/challenge.html",
+              "_site/whynow.html": "https://knowledge-intelligence.dev/whynow.html",
               "_site/capability.html": "https://knowledge-intelligence.dev/capability.html",
               "_site/framework.html": "https://knowledge-intelligence.dev/framework.html",
               "_site/decisions.html": "https://knowledge-intelligence.dev/decisions.html",

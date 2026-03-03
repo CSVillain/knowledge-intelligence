@@ -23,9 +23,16 @@ _site/
 images/3d-network.png
 images/blue-graph.png
 images/iceberg.png
-images/kore-cube.png
 images/mechanism.png
 images/mockup-tacit-constellation.svg
 images/dalle-prompt-pack.md
 images/diagrams/
 images/simple_landing_concept_1.png
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

@@ -52,3 +52,32 @@ Repository-specific guidance for Codex and other coding agents.
 - Keep commits focused and small.
 - Do not force-push unless explicitly requested.
 - Do not revert unrelated local changes made by the user.
+
+## Visual Engineering
+
+When a request involves comparison, frameworks, dashboards, conceptual diagrams, or visual explanation:
+
+1. Default to production-quality graphical implementation, not formatted text.
+2. Do NOT use markdown tables, ASCII layouts, or two-column text blocks as visual substitutes.
+3. Assume a modern web environment with full npm support.
+
+Default stack:
+- React (functional components)
+- Tailwind CSS (layout + spacing system)
+- Lucide or Heroicons (iconography)
+- Framer Motion (subtle animation when useful)
+- Recharts or D3.js (data visualisation)
+- Three.js (only when spatial/3D improves clarity)
+
+Design standards:
+- Clear visual hierarchy (scale, contrast, spacing rhythm)
+- Component-based architecture
+- Accessible colour contrast
+- Modern, minimal enterprise aesthetic
+- Consistent spacing system
+- Semantic grouping
+- Responsive layout by default
+
+Optimise for visual polish and clarity, not just structural correctness.
+
+If graphical implementation is not appropriate, explain why rather than reverting to markdown formatting.
