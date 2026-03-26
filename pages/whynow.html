@@ -235,6 +235,36 @@ permalink: /whynow.html
               <span class="af-value">Governance<br>Discipline</span>
             </div>
           </div>
+          <div class="ai-formula-viz" aria-hidden="true">
+            <svg viewBox="0 0 560 48" width="100%" style="max-width:560px;display:block;margin-top:16px" fill="none">
+              <defs>
+                <linearGradient id="fv-bar" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#67d487" stop-opacity="0.8"/>
+                  <stop offset="40%" stop-color="#e0bc56" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#22b9dc" stop-opacity="0.5"/>
+                </linearGradient>
+              </defs>
+              <!-- Labels -->
+              <text x="0"   y="10" font-size="9" fill="#67d487" font-family="Space Grotesk,sans-serif" font-weight="600" letter-spacing="0.06em">MODEL</text>
+              <text x="200" y="10" font-size="9" fill="#e0bc56" font-family="Space Grotesk,sans-serif" font-weight="600" letter-spacing="0.06em">KNOWLEDGE</text>
+              <text x="400" y="10" font-size="9" fill="#22b9dc" font-family="Space Grotesk,sans-serif" font-weight="600" letter-spacing="0.06em">GOVERNANCE</text>
+              <!-- Track -->
+              <rect x="0" y="20" width="560" height="8" fill="rgba(255,255,255,0.05)" rx="4"/>
+              <!-- Model segment: full (you have it) -->
+              <rect x="0" y="20" width="180" height="8" fill="#67d487" opacity="0.7" rx="4" id="fv-model"
+                style="transform:scaleX(0);transform-origin:left;animation:fvBar 0.8s 0.2s cubic-bezier(0.4,0,0.2,1) forwards"/>
+              <!-- Knowledge segment: partial (missing) -->
+              <rect x="200" y="20" width="60" height="8" fill="#e0bc56" opacity="0.5" rx="2" id="fv-kq"
+                style="transform:scaleX(0);transform-origin:left;animation:fvBar 0.8s 0.6s cubic-bezier(0.4,0,0.2,1) forwards"/>
+              <!-- Governance segment: partial (missing) -->
+              <rect x="400" y="20" width="40" height="8" fill="#22b9dc" opacity="0.4" rx="2" id="fv-gov"
+                style="transform:scaleX(0);transform-origin:left;animation:fvBar 0.8s 1.0s cubic-bezier(0.4,0,0.2,1) forwards"/>
+              <!-- Gap indicators -->
+              <text x="200" y="42" font-size="8" fill="rgba(224,188,86,0.5)" font-family="sans-serif">✕ ungoverned</text>
+              <text x="400" y="42" font-size="8" fill="rgba(34,185,220,0.4)" font-family="sans-serif">✕ ungoverned</text>
+            </svg>
+            <style>@keyframes fvBar{from{transform:scaleX(0)}to{transform:scaleX(1)}}</style>
+          </div>
         </div>
         <div class="ai-grid">
           <div class="ai-cell">

@@ -413,7 +413,7 @@ permalink: /framework.html
         entries.forEach(function(e){
           if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
         });
-      }, { threshold: 0.15 });
+      }, { threshold: 0 });
       targets.forEach(function(t){ if (t.el) io.observe(t.el); });
     }());
   </script>

@@ -191,6 +191,15 @@ permalink: /measurement.html
         </div>
         <div class="kpi-grid">
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <defs><linearGradient id="grad-rsr" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="rgba(103,212,135,0.1)"/><stop offset="100%" stop-color="rgba(103,212,135,0.4)"/></linearGradient></defs>
+              <rect x="0" y="0" width="162" height="36" fill="url(#grad-rsr)"/>
+              <text x="6" y="23" font-size="11" font-weight="700" fill="#67d487" font-family="Bricolage Grotesque,sans-serif">40–60%</text>
+              <text x="6" y="33" font-size="8" fill="rgba(255,255,255,0.3)" font-family="Space Grotesk,sans-serif">ungoverned baseline</text>
+              <line x1="162" y1="0" x2="162" y2="36" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="2 2"/>
+              <text x="168" y="23" font-size="11" font-weight="700" fill="#67d487" font-family="Bricolage Grotesque,sans-serif">75–90%</text>
+              <text x="168" y="33" font-size="8" fill="rgba(255,255,255,0.3)" font-family="Space Grotesk,sans-serif">governed</text>
+            </svg></div>
             <div class="kpi-name">Retrieval Success Rate</div>
             <div class="kpi-desc">The proportion of knowledge queries that return a result the user accepts as useful -
               defined not by whether a result appeared, but whether the user acted on it.</div>
@@ -202,6 +211,15 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <rect x="4"  y="4"  width="18" height="32" fill="rgba(239,107,107,0.6)" rx="2" class="micro-bar micro-bar-d1"/>
+              <rect x="28" y="8"  width="18" height="28" fill="rgba(239,107,107,0.5)" rx="2" class="micro-bar micro-bar-d2"/>
+              <rect x="52" y="14" width="18" height="22" fill="rgba(239,107,107,0.4)" rx="2" class="micro-bar micro-bar-d3"/>
+              <rect x="76" y="20" width="18" height="16" fill="rgba(239,107,107,0.3)" rx="2" class="micro-bar micro-bar-d4"/>
+              <rect x="100" y="26" width="18" height="10" fill="rgba(239,107,107,0.2)" rx="2" class="micro-bar micro-bar-d5"/>
+              <text x="130" y="20" font-size="9" fill="rgba(255,255,255,0.3)" font-family="Space Grotesk,sans-serif">zero-results</text>
+              <text x="130" y="30" font-size="9" fill="rgba(255,255,255,0.3)" font-family="Space Grotesk,sans-serif">declining → good</text>
+            </svg></div>
             <div class="kpi-name">Zero-Results Rate</div>
             <div class="kpi-desc">The proportion of queries that return no usable answer. High zero-results rates signal
               gaps in taxonomy coverage, ingestion failure, or misalignment between how knowledge is classified and how
@@ -214,6 +232,14 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <circle cx="18" cy="18" r="14" stroke="rgba(255,255,255,0.06)" stroke-width="8" fill="none"/>
+              <circle cx="18" cy="18" r="14" stroke="#67d487" stroke-width="8" fill="none" stroke-dasharray="53 35" stroke-dashoffset="-14" class="micro-ring micro-ring-d1" style="--ring-len:53;--ring-gap:35;--ring-total:88;--ring-to:35;"/>
+              <circle cx="18" cy="18" r="14" stroke="#ef6b6b" stroke-width="8" fill="none" stroke-dasharray="35 53" stroke-dashoffset="-67" class="micro-ring micro-ring-d2" style="--ring-len:35;--ring-gap:53;--ring-total:88;--ring-to:53;"/>
+              <text x="18" y="22" text-anchor="middle" font-size="8" font-weight="700" fill="white" font-family="sans-serif">60%</text>
+              <text x="48" y="14" font-size="9" fill="#67d487" font-family="Space Grotesk,sans-serif">In-window</text>
+              <text x="48" y="26" font-size="9" fill="#ef6b6b" font-family="Space Grotesk,sans-serif">Overdue</text>
+            </svg></div>
             <div class="kpi-name">Knowledge Freshness SLA</div>
             <div class="kpi-desc">The proportion of active knowledge assets reviewed within their defined validity
               window. Varies by domain - a regulatory policy may require 90-day review; a product specification may be
@@ -226,6 +252,17 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <rect x="0"  y="24" width="66" height="12" fill="#67d487" opacity="0.7" rx="1"/>
+              <rect x="70" y="24" width="46" height="12" fill="#e0bc56" opacity="0.7" rx="1"/>
+              <rect x="120" y="24" width="76" height="12" fill="#ef6b6b" opacity="0.7" rx="1"/>
+              <text x="33"  y="18" text-anchor="middle" font-size="9" fill="#67d487" font-family="Space Grotesk,sans-serif" font-weight="600">Trust</text>
+              <text x="93"  y="18" text-anchor="middle" font-size="9" fill="#e0bc56" font-family="Space Grotesk,sans-serif" font-weight="600">Review</text>
+              <text x="158" y="18" text-anchor="middle" font-size="9" fill="#ef6b6b" font-family="Space Grotesk,sans-serif" font-weight="600">Retire</text>
+              <text x="33"  y="10" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.3)" font-family="sans-serif">33%</text>
+              <text x="93"  y="10" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.3)" font-family="sans-serif">23%</text>
+              <text x="158" y="10" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.3)" font-family="sans-serif">44%</text>
+            </svg></div>
             <div class="kpi-name">Confidence Distribution</div>
             <div class="kpi-desc">The spread of Knowledge Health Scores across the active estate - the proportion of
               assets in Trust, Review, and Retire states. Tracks whether estate quality is improving or degrading over
@@ -250,6 +287,15 @@ permalink: /measurement.html
         </div>
         <div class="kpi-grid">
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <rect x="0"  y="10" width="80" height="16" fill="rgba(239,107,107,0.35)" rx="2"/>
+              <text x="40"  y="22" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.5)" font-family="sans-serif">3 weeks</text>
+              <line x1="86" y1="18" x2="100" y2="18" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+              <polygon points="100,14 108,18 100,22" fill="rgba(255,255,255,0.2)"/>
+              <rect x="110" y="13" width="30" height="10" fill="rgba(103,212,135,0.5)" rx="2"/>
+              <text x="125" y="22" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.7)" font-family="sans-serif">2 days</text>
+              <text x="148" y="22" font-size="8" fill="#67d487" font-family="Space Grotesk,sans-serif" font-weight="700">−90%</text>
+            </svg></div>
             <div class="kpi-name">Time to Insight</div>
             <div class="kpi-desc">The elapsed time from a question being asked to an answer being accepted and acted
               upon. Applies across functions - from a service agent resolving a case, to a strategist validating an
@@ -262,6 +308,13 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <path d="M0,30 C40,28 80,20 130,12 L200,6" stroke="rgba(34,185,220,0.25)" stroke-width="1" fill="none"/>
+              <path d="M0,30 C40,28 80,20 130,12 L200,6" stroke="#22b9dc" stroke-width="1.5" fill="none" class="micro-line micro-line-delay2"/>
+              <circle cx="130" cy="12" r="3" fill="#22b9dc"/>
+              <text x="134" y="10" font-size="8" fill="#22b9dc" font-family="Space Grotesk,sans-serif" font-weight="700">−28.6%</text>
+              <text x="134" y="20" font-size="7" fill="rgba(255,255,255,0.25)" font-family="sans-serif">median resolution</text>
+            </svg></div>
             <div class="kpi-name">Resolution Time Reduction</div>
             <div class="kpi-desc">Reduction in time taken to resolve cases, incidents, or requests that require
               knowledge retrieval. Measured across service, legal, compliance, and HR workflows where knowledge
@@ -275,6 +328,15 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <rect x="0"  y="4"  width="120" height="10" fill="rgba(255,255,255,0.12)" rx="1"/>
+              <rect x="0"  y="4"  width="17"  height="10" fill="rgba(103,212,135,0.7)"  rx="1"/>
+              <text x="125" y="13" font-size="9" fill="#67d487" font-family="Space Grotesk,sans-serif" font-weight="700">86%</text>
+              <text x="0"   y="28" font-size="7" fill="rgba(255,255,255,0.25)" font-family="sans-serif">search time reduction</text>
+              <rect x="0"  y="20" width="120" height="10" fill="rgba(255,255,255,0.12)" rx="1"/>
+              <rect x="0"  y="20" width="100" height="10" fill="rgba(34,185,220,0.5)"  rx="1"/>
+              <text x="125" y="29" font-size="9" fill="#22b9dc" font-family="Space Grotesk,sans-serif" font-weight="700">2.5d</text>
+            </svg></div>
             <div class="kpi-name">Effort Efficiency</div>
             <div class="kpi-desc">The reduction in time staff spend searching for, validating, or reconstructing
               knowledge they need. Captures the upstream friction that precedes a decision or action, including search
@@ -288,6 +350,19 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <line x1="0" y1="18" x2="200" y2="18" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <line x1="100" y1="0" x2="100" y2="36" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <circle cx="30"  cy="28" r="3" fill="rgba(239,107,107,0.6)"/>
+              <circle cx="55"  cy="24" r="3" fill="rgba(239,107,107,0.5)"/>
+              <circle cx="70"  cy="20" r="3" fill="rgba(224,188,86,0.6)"/>
+              <circle cx="90"  cy="16" r="4" fill="rgba(224,188,86,0.7)"/>
+              <circle cx="120" cy="12" r="4" fill="rgba(103,212,135,0.7)"/>
+              <circle cx="145" cy="8"  r="4" fill="rgba(103,212,135,0.8)"/>
+              <circle cx="170" cy="6"  r="5" fill="#67d487"/>
+              <text x="2" y="34" font-size="7" fill="rgba(255,255,255,0.2)" font-family="sans-serif">low reuse</text>
+              <text x="160" y="34" font-size="7" fill="rgba(255,255,255,0.2)" font-family="sans-serif">high</text>
+            </svg></div>
             <div class="kpi-name">Knowledge Reuse Rate</div>
             <div class="kpi-desc">The proportion of decisions, actions, or resolutions that drew on existing governed
               knowledge rather than requiring new retrieval, reconstruction, or escalation. High reuse rates indicate
@@ -312,6 +387,13 @@ permalink: /measurement.html
         </div>
         <div class="kpi-grid">
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <defs><linearGradient id="grad-rca" x1="0" y1="1" x2="0" y2="0"><stop offset="0%" stop-color="rgba(103,212,135,0"/><stop offset="100%" stop-color="rgba(103,212,135,0.3)"/></linearGradient></defs>
+              <path d="M0,32 C30,30 60,26 90,20 C120,14 150,8 200,4 L200,36 L0,36 Z" fill="url(#grad-rca)"/>
+              <path d="M0,32 C30,30 60,26 90,20 C120,14 150,8 200,4" stroke="#67d487" stroke-width="1.5" fill="none" class="micro-line"/>
+              <text x="4" y="12" font-size="8" fill="rgba(255,255,255,0.3)" font-family="sans-serif">cost avoided</text>
+              <text x="4" y="22" font-size="8" fill="rgba(255,255,255,0.2)" font-family="sans-serif">rising with reuse rate</text>
+            </svg></div>
             <div class="kpi-name">Reinvention Cost Avoidance</div>
             <div class="kpi-desc">Estimated cost avoided when teams reuse existing governed assets instead of rebuilding
               the same analysis or deliverable. Calculated as reuse events multiplied by average asset creation time and
@@ -324,6 +406,14 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <rect x="10" y="8"  width="60" height="12" fill="rgba(239,107,107,0.4)" rx="2"/>
+              <text x="40" y="18" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.5)" font-family="sans-serif">Before KI</text>
+              <rect x="80" y="8"  width="36" height="12" fill="rgba(103,212,135,0.5)" rx="2"/>
+              <text x="98" y="18" text-anchor="middle" font-size="8" fill="rgba(255,255,255,0.7)" font-family="sans-serif">After</text>
+              <text x="122" y="18" font-size="9" fill="#67d487" font-family="Space Grotesk,sans-serif" font-weight="700">−2.5d</text>
+              <text x="10" y="32" font-size="7" fill="rgba(255,255,255,0.2)" font-family="sans-serif">days to independent contribution</text>
+            </svg></div>
             <div class="kpi-name">Onboarding Velocity</div>
             <div class="kpi-desc">Time from start date to independent contribution in role-relevant workflows that
               depend on governed knowledge access.</div>
@@ -335,6 +425,14 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <rect x="4"  y="10" width="30" height="20" fill="rgba(167,139,250,0.5)" rx="2" class="micro-bar micro-bar-d1"/>
+              <rect x="40" y="16" width="30" height="14" fill="rgba(167,139,250,0.35)" rx="2" class="micro-bar micro-bar-d2"/>
+              <rect x="76" y="22" width="30" height="8"  fill="rgba(167,139,250,0.2)" rx="2" class="micro-bar micro-bar-d3"/>
+              <text x="4"   y="8" font-size="8" fill="rgba(255,255,255,0.25)" font-family="sans-serif">external spend</text>
+              <text x="115" y="20" font-size="9" fill="#a78bfa" font-family="Space Grotesk,sans-serif" font-weight="700">↓ declining</text>
+              <text x="115" y="30" font-size="7" fill="rgba(255,255,255,0.2)" font-family="sans-serif">as internal coverage rises</text>
+            </svg></div>
             <div class="kpi-name">External Spend Rationalisation</div>
             <div class="kpi-desc">Reduction in vendor or consultancy spend for questions that can be answered from
               internal governed knowledge.</div>
@@ -358,6 +456,13 @@ permalink: /measurement.html
         </div>
         <div class="kpi-grid">
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <circle cx="18" cy="18" r="14" stroke="rgba(255,255,255,0.06)" stroke-width="8" fill="none"/>
+              <circle cx="18" cy="18" r="14" stroke="#ef6b6b" stroke-width="8" fill="none" stroke-dasharray="62 26" stroke-dashoffset="-7" class="micro-ring micro-ring-d1" style="--ring-len:62;--ring-gap:26;--ring-total:88;--ring-to:26;"/>
+              <text x="18" y="22" text-anchor="middle" font-size="8" font-weight="700" fill="white" font-family="sans-serif">3</text>
+              <text x="44" y="14" font-size="9" fill="#ef6b6b" font-family="Space Grotesk,sans-serif">70% domains</text>
+              <text x="44" y="25" font-size="8" fill="rgba(255,255,255,0.25)" font-family="sans-serif">high concentration</text>
+            </svg></div>
             <div class="kpi-name">Concentration Risk Index</div>
             <div class="kpi-desc">The proportion of critical knowledge domains where fewer than a defined threshold of
               people hold the relevant expertise. A domain where only one or two people are the recognised source of
@@ -370,6 +475,14 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <rect x="0" y="24" width="200" height="3" fill="rgba(255,255,255,0.06)" rx="1"/>
+              <rect x="0" y="24" width="152" height="3" fill="#22b9dc" opacity="0.7" rx="1" class="micro-line" style="stroke-dasharray:none"/>
+              <text x="0"   y="18" font-size="9" fill="rgba(255,255,255,0.5)" font-family="Space Grotesk,sans-serif">Auto-classified</text>
+              <text x="0"   y="10" font-size="11" font-weight="700" fill="#22b9dc" font-family="Bricolage Grotesque,sans-serif">76%</text>
+              <text x="158" y="18" font-size="9" fill="rgba(255,255,255,0.25)" font-family="sans-serif">manual</text>
+              <text x="158" y="10" font-size="11" font-weight="700" fill="rgba(255,255,255,0.3)" font-family="Bricolage Grotesque,sans-serif">24%</text>
+            </svg></div>
             <div class="kpi-name">Taxonomy Alignment Rate</div>
             <div class="kpi-desc">The proportion of ingested assets successfully classified by the living taxonomy
               without manual intervention. A declining rate signals the estate is evolving faster than the
@@ -382,6 +495,13 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <path d="M0,10 C30,10 50,11 70,13 C90,16 110,22 140,28 L200,34" stroke="rgba(239,107,107,0.25)" stroke-width="1" fill="none"/>
+              <path d="M0,10 C30,10 50,11 70,13 C90,16 110,22 140,28 L200,34" stroke="#ef6b6b" stroke-width="1.5" fill="none" class="micro-line micro-line-delay1"/>
+              <circle cx="140" cy="28" r="3" fill="#ef6b6b"/>
+              <text x="144" y="27" font-size="7" fill="rgba(239,107,107,0.8)" font-family="Space Grotesk,sans-serif">loss event</text>
+              <text x="4" y="8" font-size="7" fill="rgba(255,255,255,0.2)" font-family="sans-serif">invisible until it registers</text>
+            </svg></div>
             <div class="kpi-name">Knowledge Loss Rate</div>
             <div class="kpi-desc">The rate at which knowledge leaves the estate without capture - through departures,
               project completions, or system retirements where no elicitation or transfer has occurred.</div>
@@ -393,6 +513,14 @@ permalink: /measurement.html
             </div>
           </div>
           <div class="kpi-card">
+            <div class="kpi-micro-chart"><svg viewBox="0 0 200 36" preserveAspectRatio="none" fill="none">
+              <rect x="0"  y="12" width="200" height="12" fill="rgba(255,255,255,0.04)" rx="2"/>
+              <rect x="0"  y="12" width="94"  height="12" fill="rgba(167,139,250,0.5)"  rx="2" class="micro-bar micro-bar-d1"/>
+              <text x="0"  y="10" font-size="8" fill="rgba(255,255,255,0.3)" font-family="sans-serif">Attribution coverage</text>
+              <text x="0"  y="34" font-size="8" fill="rgba(255,255,255,0.2)" font-family="sans-serif">47% of decisions traceable</text>
+              <text x="98" y="22" font-size="9" fill="#a78bfa" font-family="Space Grotesk,sans-serif" font-weight="700">47%</text>
+              <text x="140" y="22" font-size="8" fill="rgba(255,255,255,0.15)" font-family="sans-serif">→ target 85%</text>
+            </svg></div>
             <div class="kpi-name">Attribution Coverage Rate</div>
             <div class="kpi-desc">The proportion of material decisions that include a complete attribution trail showing
               which assets and contributors influenced the decision.</div>
