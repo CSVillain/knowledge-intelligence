@@ -18,6 +18,76 @@ permalink: /framework.html
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
   <link rel="stylesheet" href="/assets/css/site.css?v=20260303-1">
+  <style>
+    /* ── KHS BADGE ON LIFECYCLE STAGES ───────────────────── */
+    .lc-stage { position: relative; }
+    .khs-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-top: 8px;
+      border: 1px solid;
+    }
+    .khs-badge.trust  { color: #67d487; border-color: rgba(103,212,135,0.3); background: rgba(103,212,135,0.08); }
+    .khs-badge.review { color: #e0bc56; border-color: rgba(224,188,86,0.3);  background: rgba(224,188,86,0.08); }
+    .khs-badge.retire { color: #ef6b6b; border-color: rgba(239,107,107,0.3); background: rgba(239,107,107,0.08); }
+    .khs-badge.new    { color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
+    .khs-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+
+    /* ── CONFIDENCE SCORE BARS ON CKA STANDARD BOX ─────────── */
+    .std-row { position: relative; }
+    .conf-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .conf-bar-track {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 1px;
+      overflow: hidden;
+    }
+    .conf-bar-fill {
+      height: 100%;
+      border-radius: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1s cubic-bezier(0.4,0,0.2,1);
+    }
+    .standard-box.visible .conf-bar-fill { transform: scaleX(1); }
+    .conf-bar-val {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.3);
+      width: 28px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* ── LIFECYCLE CONNECTOR ANIMATION ───────────────────── */
+    .lc-connector {
+      font-size: 20px;
+      color: rgba(255,255,255,0.15);
+      opacity: 0;
+      transform: scaleX(0);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .lifecycle.visible .lc-connector { opacity: 1; transform: scaleX(1); }
+    .lifecycle.visible .lc-connector:nth-child(2) { transition-delay: 0.3s; }
+    .lifecycle.visible .lc-connector:nth-child(4) { transition-delay: 0.6s; }
+    .lifecycle.visible .lc-connector:nth-child(6) { transition-delay: 0.9s; }
+    .lifecycle.visible .lc-connector:nth-child(8) { transition-delay: 1.2s; }
+  </style>
 </head>
 
 <body>
@@ -189,6 +259,7 @@ permalink: /framework.html
             <div class="std-row-text">
               <div class="std-row-name">Identity</div>
               <div class="std-row-desc">Asset type, domain, transferability, and reach of the knowledge unit.</div>
+              <div class="conf-bar-wrap"><div class="conf-bar-track"><div class="conf-bar-fill" style="width:92%;background:#c8a84a;transition-delay:0.1s"></div></div><span class="conf-bar-val">92%</span></div>
             </div>
           </div>
           <div class="std-row">
@@ -196,6 +267,7 @@ permalink: /framework.html
             <div class="std-row-text">
               <div class="std-row-name">Provenance</div>
               <div class="std-row-desc">Source authority, authorship chain, and evidence origin history.</div>
+              <div class="conf-bar-wrap"><div class="conf-bar-track"><div class="conf-bar-fill" style="width:78%;background:#b79657;transition-delay:0.2s"></div></div><span class="conf-bar-val">78%</span></div>
             </div>
           </div>
           <div class="std-row">
@@ -203,6 +275,7 @@ permalink: /framework.html
             <div class="std-row-text">
               <div class="std-row-name">Content</div>
               <div class="std-row-desc">Governed structured knowledge in executable, retrievable form.</div>
+              <div class="conf-bar-wrap"><div class="conf-bar-track"><div class="conf-bar-fill" style="width:85%;background:#a4a567;transition-delay:0.3s"></div></div><span class="conf-bar-val">85%</span></div>
             </div>
           </div>
           <div class="std-row">
@@ -210,6 +283,7 @@ permalink: /framework.html
             <div class="std-row-text">
               <div class="std-row-name">Taxonomy</div>
               <div class="std-row-desc">Living classification and concept alignment to current strategy.</div>
+              <div class="conf-bar-wrap"><div class="conf-bar-track"><div class="conf-bar-fill" style="width:70%;background:#78a079;transition-delay:0.4s"></div></div><span class="conf-bar-val">70%</span></div>
             </div>
           </div>
         </div>
@@ -220,6 +294,7 @@ permalink: /framework.html
             <div class="std-row-text">
               <div class="std-row-name">Quality</div>
               <div class="std-row-desc">Confidence, consistency, and evidence integrity signals over time.</div>
+              <div class="conf-bar-wrap"><div class="conf-bar-track"><div class="conf-bar-fill" style="width:88%;background:#67d487;transition-delay:0.5s"></div></div><span class="conf-bar-val">88%</span></div>
             </div>
           </div>
           <div class="std-row">
@@ -227,6 +302,7 @@ permalink: /framework.html
             <div class="std-row-text">
               <div class="std-row-name">Value</div>
               <div class="std-row-desc">Decision relevance, reuse performance, and measurable impact trail.</div>
+              <div class="conf-bar-wrap"><div class="conf-bar-track"><div class="conf-bar-fill" style="width:74%;background:#6bb8cc;transition-delay:0.6s"></div></div><span class="conf-bar-val">74%</span></div>
             </div>
           </div>
           <div class="std-row">
@@ -234,6 +310,7 @@ permalink: /framework.html
             <div class="std-row-text">
               <div class="std-row-name">Lineage</div>
               <div class="std-row-desc">Downstream decision history and dependency chain influenced by this asset.</div>
+              <div class="conf-bar-wrap"><div class="conf-bar-track"><div class="conf-bar-fill" style="width:61%;background:#7f8fcd;transition-delay:0.7s"></div></div><span class="conf-bar-val">61%</span></div>
             </div>
           </div>
         </div>
@@ -268,6 +345,7 @@ permalink: /framework.html
           <div class="lc-stage-name">Captured</div>
           <div class="lc-stage-desc">Knowledge enters the system through automated ingestion. Identity, type, and
             provenance are recorded.</div>
+          <span class="khs-badge new"><span class="khs-dot"></span>Unscored</span>
         </div>
         <div class="lc-connector">→</div>
         <div class="lc-stage active">
@@ -276,6 +354,7 @@ permalink: /framework.html
           <div class="lc-stage-name">Classified</div>
           <div class="lc-stage-desc">Domain, reach, and transferability are automatically classified. Initial confidence
             score is computed.</div>
+          <span class="khs-badge trust"><span class="khs-dot"></span>KHS: Trust</span>
         </div>
         <div class="lc-connector">→</div>
         <div class="lc-stage active">
@@ -284,6 +363,7 @@ permalink: /framework.html
           <div class="lc-stage-name">Governed</div>
           <div class="lc-stage-desc">Assets are cited and challenged in practice. Conflicts and exceptions route to
             human adjudication.</div>
+          <span class="khs-badge trust"><span class="khs-dot"></span>KHS: Trust</span>
         </div>
         <div class="lc-connector">→</div>
         <div class="lc-stage">
@@ -292,6 +372,7 @@ permalink: /framework.html
           <div class="lc-stage-name">Reviewed</div>
           <div class="lc-stage-desc">Currency drops below threshold. Owner is alerted. Revalidation, override, or
             retirement is required.</div>
+          <span class="khs-badge review"><span class="khs-dot"></span>KHS: Review</span>
         </div>
         <div class="lc-connector">→</div>
         <div class="lc-stage terminal">
@@ -300,6 +381,7 @@ permalink: /framework.html
           <div class="lc-stage-name">Retired or Renewed</div>
           <div class="lc-stage-desc">Asset is superseded, archived, or refreshed. Lineage preserved for future
             reference.</div>
+          <span class="khs-badge retire"><span class="khs-dot"></span>KHS: Retire</span>
         </div>
       </div>
       <div class="lc-footer">At every stage, the asset carries its full history - what it influenced, who used it, and
@@ -321,6 +403,20 @@ permalink: /framework.html
     </a>
   </nav>
   <script src="/assets/js/site.js?v=20260303-1" defer></script>
+  <script>
+    (function(){
+      var targets = [
+        { el: document.querySelector('.standard-box'), cls: 'visible' },
+        { el: document.querySelector('.lifecycle'), cls: 'visible' }
+      ];
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      targets.forEach(function(t){ if (t.el) io.observe(t.el); });
+    }());
+  </script>
 </body>
 
 </html>

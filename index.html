@@ -16,6 +16,100 @@
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
   <link rel="stylesheet" href="/assets/css/site.css?v=20260303-1">
+  <style>
+    /* ── HERO STAT ENHANCEMENTS ───────────────────────── */
+    .stat-item {
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-sparkline {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40px;
+      pointer-events: none;
+      opacity: 0.18;
+    }
+    .stat-source {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-top: 6px;
+    }
+    .stat-bar-track {
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 1px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+    .stat-bar-fill {
+      height: 100%;
+      border-radius: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .home-hero.vis-ready .stat-bar-fill { transform: scaleX(1); }
+
+    /* ── PILLAR CARDS ───────────────────────────────── */
+    .pillar-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--p-color, rgba(34,185,220,0.4)), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .pillar-card:hover::after { opacity: 1; }
+    .pillar-card:nth-child(1) { --p-color: rgba(34,185,220,0.5); }
+    .pillar-card:nth-child(2) { --p-color: rgba(103,212,135,0.5); }
+    .pillar-card:nth-child(3) { --p-color: rgba(167,139,250,0.5); }
+    .pillar-metric {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .pillar-metric-val {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--p-color, rgba(34,185,220,0.9));
+      line-height: 1;
+    }
+    .pillar-metric-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.4;
+    }
+
+    /* ── CHAPTER CHIPS ───────────────────────────────── */
+    .chapter-chip {
+      position: relative;
+      overflow: hidden;
+    }
+    .ch-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+      display: block;
+    }
+  </style>
 </head>
 
 <body class="home-landing">
@@ -55,10 +149,20 @@
           <div class="stat-item">
             <span class="stat-value">84-91%</span>
             <p>of market value is tied to intangible assets rooted in organisational knowledge.</p>
+            <span class="stat-source">Ocean Tomo, 2015–2020</span>
+            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:88%;background:var(--accent,#22b9dc)"></div></div>
+            <svg class="stat-sparkline" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,35 30,30 60,25 90,18 130,12 170,8 200,5" fill="none" stroke="#22b9dc" stroke-width="1.5"/>
+            </svg>
           </div>
           <div class="stat-item">
             <span class="stat-value">48%</span>
             <p>of leaders report critical knowledge loss each year.</p>
+            <span class="stat-source">KMWorld, 2024</span>
+            <div class="stat-bar-track"><div class="stat-bar-fill" style="width:48%;background:#e0bc56"></div></div>
+            <svg class="stat-sparkline" viewBox="0 0 200 40" preserveAspectRatio="none" aria-hidden="true">
+              <polyline points="0,10 40,14 80,18 110,24 150,30 200,35" fill="none" stroke="#e0bc56" stroke-width="1.5"/>
+            </svg>
           </div>
         </aside>
       </div>
@@ -75,16 +179,28 @@
             <div class="pillar-icon-wrap"><i data-lucide="layers-3"></i></div>
             <h3>Clarity and Insight</h3>
             <p>Map the full knowledge landscape and make material gaps visible.</p>
+            <div class="pillar-metric">
+              <div class="pillar-metric-val">80%</div>
+              <div class="pillar-metric-label">of knowledge estate is tacit and currently invisible</div>
+            </div>
           </article>
           <article class="pillar-card fade-in">
             <div class="pillar-icon-wrap"><i data-lucide="shield-check"></i></div>
             <h3>Governance Framework</h3>
             <p>Establish ownership, controls, and accountability across the knowledge lifecycle.</p>
+            <div class="pillar-metric">
+              <div class="pillar-metric-val">8</div>
+              <div class="pillar-metric-label">governed CKA attributes across 3 operating dimensions</div>
+            </div>
           </article>
           <article class="pillar-card fade-in">
             <div class="pillar-icon-wrap"><i data-lucide="trending-up"></i></div>
             <h3>Strategic Impact</h3>
             <p>Strengthen decision quality and convert knowledge into durable advantage.</p>
+            <div class="pillar-metric">
+              <div class="pillar-metric-val">6–12mo</div>
+              <div class="pillar-metric-label">signal lead time advantage over ungoverned alternatives</div>
+            </div>
           </article>
         </div>
       </div>
@@ -99,25 +215,30 @@
         <p class="chapters-sub fade-in">Review each section independently to assess capability design, governance
           controls, and implementation risk.</p>
         <div class="chapter-grid">
-          <a class="chapter-chip fade-in" href="/assets.html"><i data-lucide="layout-grid"></i><span>The
-              Assets</span></a>
-          <a class="chapter-chip fade-in" href="/challenge.html"><i data-lucide="triangle-alert"></i><span>The
-              Challenge</span></a>
-          <a class="chapter-chip fade-in" href="/whynow.html"><i data-lucide="clock-3"></i><span>Why Now</span></a>
-          <a class="chapter-chip fade-in" href="/capability.html"><i data-lucide="star"></i><span>The
-              Capability</span></a>
-          <a class="chapter-chip fade-in" href="/framework.html"><i data-lucide="globe"></i><span>The
-              Framework</span></a>
-          <a class="chapter-chip fade-in" href="/decisions.html"><i data-lucide="grid-3x3"></i><span>The
-              Decisions</span></a>
-          <a class="chapter-chip fade-in" href="/measurement.html"><i data-lucide="chart-column"></i><span>The
-              Measurement</span></a>
-          <a class="chapter-chip fade-in" href="/barriers.html"><i data-lucide="ban"></i><span>The Barriers</span></a>
+          <a class="chapter-chip fade-in" href="/assets.html"><span class="ch-num">01</span><i data-lucide="layout-grid"></i><span>The Assets</span></a>
+          <a class="chapter-chip fade-in" href="/challenge.html"><span class="ch-num">02</span><i data-lucide="triangle-alert"></i><span>The Challenge</span></a>
+          <a class="chapter-chip fade-in" href="/whynow.html"><span class="ch-num">03</span><i data-lucide="clock-3"></i><span>Why Now</span></a>
+          <a class="chapter-chip fade-in" href="/capability.html"><span class="ch-num">04</span><i data-lucide="star"></i><span>The Capability</span></a>
+          <a class="chapter-chip fade-in" href="/framework.html"><span class="ch-num">05</span><i data-lucide="globe"></i><span>The Framework</span></a>
+          <a class="chapter-chip fade-in" href="/decisions.html"><span class="ch-num">06</span><i data-lucide="grid-3x3"></i><span>The Decisions</span></a>
+          <a class="chapter-chip fade-in" href="/measurement.html"><span class="ch-num">07</span><i data-lucide="chart-column"></i><span>The Measurement</span></a>
+          <a class="chapter-chip fade-in" href="/barriers.html"><span class="ch-num">08</span><i data-lucide="ban"></i><span>The Barriers</span></a>
         </div>
       </div>
     </section>
   </main>
   <script src="/assets/js/site.js?v=20260303-1" defer></script>
+  <script>
+    // Trigger stat bar animations when hero is visible
+    (function(){
+      var hero = document.querySelector('.home-hero');
+      if (!hero) return;
+      var io = new IntersectionObserver(function(e){
+        if (e[0].isIntersecting) { hero.classList.add('vis-ready'); io.unobserve(hero); }
+      }, { threshold: 0.3 });
+      io.observe(hero);
+    }());
+  </script>
 </body>
 
 </html>

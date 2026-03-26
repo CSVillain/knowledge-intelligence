@@ -18,6 +18,42 @@ permalink: /challenge.html
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
   <link rel="stylesheet" href="/assets/css/site.css?v=20260303-1">
+  <style>
+    /* ── DIAGNOSTIC SEVERITY BAR ANIMATION ─────────────────── */
+    .diag-sev-bar {
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+    }
+    .diag-panel.vis .diag-sev-bar { transform: scaleX(1); }
+    .diag-panel.vis .diag-row:nth-child(2) .diag-sev-bar { transition-delay: 0.1s; }
+    .diag-panel.vis .diag-row:nth-child(3) .diag-sev-bar { transition-delay: 0.2s; }
+    .diag-panel.vis .diag-row:nth-child(4) .diag-sev-bar { transition-delay: 0.3s; }
+    .diag-panel.vis .diag-row:nth-child(5) .diag-sev-bar { transition-delay: 0.4s; }
+
+    /* ── STAT TRIO ENHANCEMENTS ────────────────────────────── */
+    .ch-stat {
+      position: relative;
+      overflow: hidden;
+    }
+    .ch-stat-bar {
+      height: 2px;
+      margin-top: 10px;
+      border-radius: 1px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.06);
+    }
+    .ch-stat-bar-fill {
+      height: 100%;
+      border-radius: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ch-stat-trio.vis .ch-stat-bar-fill { transform: scaleX(1); }
+    .ch-stat-trio.vis .ch-stat:nth-child(2) .ch-stat-bar-fill { transition-delay: 0.2s; }
+    .ch-stat-trio.vis .ch-stat:nth-child(3) .ch-stat-bar-fill { transition-delay: 0.4s; }
+  </style>
 </head>
 
 <body>
@@ -216,21 +252,24 @@ permalink: /challenge.html
     <div class="ch-stat-trio fade-in">
       <div class="ch-stat" data-accent="blue">
         <i data-lucide="building-2" aria-hidden="true"></i>
-        <div class="ch-stat-num">84–91<span>%</span></div>
+        <div class="ch-stat-num" id="stat-num-1">84–91<span>%</span></div>
         <p>of S&amp;P 500 market value is intangible — knowledge is its core driver.</p>
         <div class="ch-stat-src">Ocean Tomo, 2015–2020</div>
+        <div class="ch-stat-bar"><div class="ch-stat-bar-fill" style="width:88%;background:rgba(34,185,220,0.7)"></div></div>
       </div>
       <div class="ch-stat" data-accent="warn">
         <i data-lucide="user-minus" aria-hidden="true"></i>
-        <div class="ch-stat-num">48<span>%</span></div>
+        <div class="ch-stat-num" id="stat-num-2">48<span>%</span></div>
         <p>of executives confirm critical knowledge leaves with departing people every year.</p>
         <div class="ch-stat-src">KMWorld, 2024</div>
+        <div class="ch-stat-bar"><div class="ch-stat-bar-fill" style="width:48%;background:rgba(224,188,86,0.7)"></div></div>
       </div>
       <div class="ch-stat" data-accent="danger">
         <i data-lucide="shield-off" aria-hidden="true"></i>
-        <div class="ch-stat-num">75<span>%</span></div>
+        <div class="ch-stat-num" id="stat-num-3">75<span>%</span></div>
         <p>of leaders do not trust their own data enough to act on it with confidence.</p>
         <div class="ch-stat-src">Dataversity / Gartner, 2025</div>
+        <div class="ch-stat-bar"><div class="ch-stat-bar-fill" style="width:75%;background:rgba(239,107,107,0.7)"></div></div>
       </div>
     </div>
 
@@ -456,6 +495,19 @@ permalink: /challenge.html
     </a>
   </nav>
   <script src="/assets/js/site.js?v=20260303-1" defer></script>
+  <script>
+    (function(){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(e){
+          if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.2 });
+      var diag = document.querySelector('.diag-panel');
+      var trio = document.querySelector('.ch-stat-trio');
+      if (diag) io.observe(diag);
+      if (trio) io.observe(trio);
+    }());
+  </script>
 </body>
 
 </html>
