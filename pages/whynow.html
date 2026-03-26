@@ -86,6 +86,52 @@ permalink: /whynow.html
       <p>AI can only be as good as the knowledge it runs on. Right now, many organisations have the models but not the
         knowledge quality or governance needed for reliable output. That is why Knowledge Intelligence is needed now.</p>
 
+      <div class="ki-gauges-wrap fade-in" id="ki-gauges">
+        <div class="ki-gauges-row">
+          <div class="ki-gauge" style="--gc:#22b9dc">
+            <div class="ki-g-tag">01 &middot; AI at scale</div>
+            <svg class="ki-g-svg" viewBox="0 0 148 88" fill="none">
+              <path class="ki-g-track" d="M14 80 A60 60 0 1 1 134 80"/>
+              <path class="ki-g-fill" id="kgf1" stroke="#22b9dc" d="M14 80 A60 60 0 1 1 134 80"/>
+            </svg>
+            <div class="ki-g-num" id="kgn1">0%</div>
+            <div class="ki-g-desc">of organisations now run AI in at least one function &mdash; the knowledge estate it depends on has never been larger or less governed</div>
+            <div class="ki-g-src">McKinsey State of AI, 2025</div>
+          </div>
+          <div class="ki-gauge" style="--gc:#e0bc56">
+            <div class="ki-g-tag">02 &middot; Knowledge loss</div>
+            <svg class="ki-g-svg" viewBox="0 0 148 88" fill="none">
+              <path class="ki-g-track" d="M14 80 A60 60 0 1 1 134 80"/>
+              <path class="ki-g-fill" id="kgf2" stroke="#e0bc56" d="M14 80 A60 60 0 1 1 134 80"/>
+            </svg>
+            <div class="ki-g-num" id="kgn2">0%</div>
+            <div class="ki-g-desc">of executives confirm that critical knowledge leaves with departing people every year &mdash; ungoverned, unrecoverable</div>
+            <div class="ki-g-src">KMWorld, 2024</div>
+          </div>
+          <div class="ki-gauge" style="--gc:#ef6b6b">
+            <div class="ki-g-tag">03 &middot; Confidence failure</div>
+            <svg class="ki-g-svg" viewBox="0 0 148 88" fill="none">
+              <path class="ki-g-track" d="M14 80 A60 60 0 1 1 134 80"/>
+              <path class="ki-g-fill" id="kgf3" stroke="#ef6b6b" d="M14 80 A60 60 0 1 1 134 80"/>
+            </svg>
+            <div class="ki-g-num" id="kgn3">0%</div>
+            <div class="ki-g-desc">of business leaders say lack of trust in their knowledge and data has stopped them making any decision at all</div>
+            <div class="ki-g-src">Oracle &middot; 14,000 leaders &middot; 17 countries</div>
+          </div>
+        </div>
+        <div class="ki-gauges-unlock" id="ki-unlock">
+          <div class="ki-unlock-icon">
+            <svg class="ki-icon-lock" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="8" rx="2" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/><path d="M5 7V5a3 3 0 016 0v2" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg class="ki-icon-open" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="3" y="7" width="10" height="8" rx="2" stroke="#67d487" stroke-width="1.5"/><path d="M5 7V5a3 3 0 016 0" stroke="#67d487" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="ki-unlock-text">
+            <div class="ki-unlock-head" id="ki-uhead">Conditions status</div>
+            <div class="ki-unlock-body" id="ki-ubody">Scale exposes the knowledge gap. The knowledge gap destroys decision confidence. All three conditions have converged.</div>
+          </div>
+          <div class="ki-unlock-pips"><div class="ki-pip"></div><div class="ki-pip"></div><div class="ki-pip"></div></div>
+        </div>
+      </div>
+
       <div class="challenge-list challenge-journey fade-in">
         <div class="journey-map">
           <svg class="journey-track" viewBox="0 0 1200 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"
@@ -252,14 +298,182 @@ permalink: /whynow.html
     </a>
   </nav>
   <script src="/assets/js/site.js?v=20260303-1" defer></script>
+  <style>
+    /* ── KI CONVERGENCE GAUGES ───────────────────────────── */
+    .ki-gauges-wrap {
+      margin: 32px 0;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .ki-gauges-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+    }
+    .ki-gauge {
+      background: rgba(6,8,16,0.95);
+      padding: 28px 22px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .ki-gauge::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gc);
+      opacity: 0.6;
+    }
+    .ki-g-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gc);
+      opacity: 0.8;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .ki-g-svg { width: 148px; height: 88px; display: block; flex-shrink: 0; }
+    .ki-g-track { fill: none; stroke: rgba(255,255,255,0.07); stroke-width: 10; stroke-linecap: round; }
+    .ki-g-fill {
+      fill: none;
+      stroke-width: 10;
+      stroke-linecap: round;
+      stroke-dasharray: 220;
+      stroke-dashoffset: 220;
+      transition: stroke-dashoffset 1.8s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ki-g-num {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      color: var(--gc);
+      margin-top: -4px;
+      margin-bottom: 10px;
+    }
+    .ki-g-desc {
+      font-size: 11px;
+      color: rgba(255,255,255,0.38);
+      text-align: center;
+      line-height: 1.6;
+      max-width: 160px;
+      flex: 1;
+    }
+    .ki-g-src {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.15);
+      text-align: center;
+      margin-top: 10px;
+    }
+    /* Unlock bar */
+    .ki-gauges-unlock {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 18px 24px;
+      background: rgba(0,0,0,0.25);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      transition: border-color 1s ease, background 1s ease;
+    }
+    .ki-gauges-unlock.on {
+      border-color: rgba(103,212,135,0.25);
+      background: rgba(103,212,135,0.04);
+    }
+    .ki-unlock-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; position: relative;
+      transition: border-color 0.8s ease, background 0.8s ease;
+    }
+    .ki-gauges-unlock.on .ki-unlock-icon {
+      border-color: rgba(103,212,135,0.45);
+      background: rgba(103,212,135,0.08);
+    }
+    .ki-icon-lock, .ki-icon-open { position: absolute; transition: opacity 0.5s ease; }
+    .ki-icon-open { opacity: 0; }
+    .ki-gauges-unlock.on .ki-icon-lock { opacity: 0; }
+    .ki-gauges-unlock.on .ki-icon-open { opacity: 1; }
+    .ki-unlock-text { flex: 1; }
+    .ki-unlock-head {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.2); margin-bottom: 3px;
+      transition: color 0.8s ease;
+    }
+    .ki-gauges-unlock.on .ki-unlock-head { color: rgba(103,212,135,0.7); }
+    .ki-unlock-body {
+      font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.5;
+      transition: color 0.8s ease;
+    }
+    .ki-gauges-unlock.on .ki-unlock-body { color: rgba(255,255,255,0.78); }
+    .ki-unlock-pips { display: flex; gap: 5px; flex-shrink: 0; }
+    .ki-pip {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      transition: background 0.4s ease;
+    }
+    .ki-gauges-unlock.on .ki-pip { background: #67d487; }
+    .ki-pip:nth-child(2) { transition-delay: 0.18s; }
+    .ki-pip:nth-child(3) { transition-delay: 0.36s; }
+  </style>
   <script>
     (function(){
-      var wrap = document.getElementById('conv-wrap');
-      if (!wrap) return;
+      function setArc(id, pct, delay) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+          el.style.strokeDashoffset = (220 - (pct / 100) * 220).toFixed(1);
+        }, delay);
+      }
+      function countUp(id, target, delay, suffix) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        setTimeout(function(){
+          var dur = 1800, step = 16, t = 0;
+          var timer = setInterval(function(){
+            t += step;
+            var p = Math.min(t / dur, 1);
+            var ease = p < 0.5 ? 2*p*p : -1+(4-2*p)*p;
+            el.textContent = Math.round(ease * target) + suffix;
+            if (p >= 1) { el.textContent = target + suffix; clearInterval(timer); }
+          }, step);
+        }, delay);
+      }
+      function runGauges() {
+        setArc('kgf1', 78, 80);   countUp('kgn1', 78, 80, '%');
+        setArc('kgf2', 48, 380);  countUp('kgn2', 48, 380, '%');
+        setArc('kgf3', 72, 680);  countUp('kgn3', 72, 680, '%');
+        setTimeout(function(){
+          var ul = document.getElementById('ki-unlock');
+          if (ul) {
+            ul.classList.add('on');
+            var head = document.getElementById('ki-uhead');
+            var body = document.getElementById('ki-ubody');
+            if (head) head.textContent = 'All three conditions met';
+            if (body) body.textContent = 'The knowledge estate is large enough. The cost of losing it is measurable. The confidence gap is unsustainable. This is why now.';
+          }
+        }, 2800);
+      }
+      var gauges = document.getElementById('ki-gauges');
+      if (!gauges) return;
       var io = new IntersectionObserver(function(entries){
-        if (entries[0].isIntersecting) { wrap.classList.add('visible'); io.unobserve(wrap); }
+        if (entries[0].isIntersecting) { runGauges(); io.unobserve(gauges); }
       }, { threshold: 0.3 });
-      io.observe(wrap);
+      io.observe(gauges);
     }());
   </script>
 </body>
