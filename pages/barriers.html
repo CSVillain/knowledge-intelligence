@@ -18,6 +18,120 @@ permalink: /barriers.html
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
   <link rel="stylesheet" href="/assets/css/site.css?v=20260303-1">
+  <style>
+    /* ── BARRIER VISUAL PANELS ────────────────────────────────── */
+    .cases-grid--barriers {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0 !important;
+      margin: 44px 0 !important;
+    }
+    .cases-grid--barriers .case-item {
+      display: grid !important;
+      grid-template-columns: 200px 1fr !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      border-left: none !important; border-right: none !important; border-top: none !important;
+      border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+      box-shadow: none !important; min-height: 0 !important; transform: none !important;
+    }
+    .cases-grid--barriers .case-item:first-child { border-top: 1px solid rgba(255,255,255,0.07) !important; border-radius: 10px 10px 0 0 !important; }
+    .cases-grid--barriers .case-item:last-child  { border-radius: 0 0 10px 10px !important; }
+    .cases-grid--barriers .case-item::before, .cases-grid--barriers .case-item::after { display: none !important; }
+    .cases-grid--barriers .case-item:hover { transform: none !important; }
+    .cases-grid--barriers .case-header { display: none !important; }
+    .cases-grid--barriers .case-body { padding: 28px 32px; display: flex; flex-direction: column; justify-content: center; }
+    .cases-grid--barriers .barrier-severity { display: none !important; }
+
+    /* Barrier visual panel */
+    .b-visual-panel {
+      border-right: 1px solid rgba(255,255,255,0.07);
+      padding: 24px 20px;
+      background: rgba(0,0,0,0.2);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column;
+    }
+    .b-visual-panel::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: var(--b-color, rgba(255,255,255,0.2));
+    }
+    .b-vis-num { font-family: 'Bricolage Grotesque',sans-serif; font-size: 48px; font-weight: 800; letter-spacing: -0.05em; color: rgba(255,255,255,0.05); line-height: 1; margin-bottom: 4px; }
+    .b-vis-tag { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--b-color, rgba(255,255,255,0.3)); margin-bottom: 16px; }
+    .b-vis-label { font-size: 9px; color: rgba(255,255,255,0.25); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; margin-bottom: 8px; }
+
+    /* Severity arc */
+    .b-severity-arc { margin-bottom: 12px; }
+    .b-sev-svg { display: block; }
+    .b-sev-track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 8; stroke-linecap: round; }
+    .b-sev-fill  { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1); }
+    .b-sev-label { font-family: 'Bricolage Grotesque',sans-serif; font-size: 18px; font-weight: 700; }
+    .b-sev-sub   { font-size: 9px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+    /* Cost counter */
+    .b-cost-counter { font-family: 'Bricolage Grotesque',sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.03em; color: var(--b-color, #ef6b6b); line-height: 1; margin-bottom: 4px; }
+    .b-cost-note { font-size: 10px; color: rgba(255,255,255,0.25); line-height: 1.5; }
+
+    /* Signal bars */
+    .b-signal-bars { display: flex; gap: 3px; align-items: flex-end; height: 32px; margin-bottom: 8px; }
+    .b-signal-bar  { width: 10px; border-radius: 2px 2px 0 0; background: var(--b-color, rgba(255,255,255,0.3)); }
+
+    /* Dependency web */
+    .b-dep-web { position: relative; height: 60px; }
+    .b-dep-node { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--b-color, rgba(255,255,255,0.4)); }
+    .b-dep-line { position: absolute; height: 1px; background: rgba(255,255,255,0.08); transform-origin: left center; }
+
+    /* ── FAILURE SCENARIOS ─────────────────────────────────────── */
+    .cases-grid--failures {
+      display: grid !important;
+      grid-template-columns: repeat(5, 1fr) !important;
+      gap: 1px !important;
+      background: rgba(255,255,255,0.07) !important;
+      border: 1px solid rgba(255,255,255,0.07) !important;
+      border-radius: 10px !important;
+      overflow: hidden !important;
+      margin: 20px 0 !important;
+    }
+    .cases-grid--failures .case-item {
+      display: flex !important;
+      flex-direction: column !important;
+      padding: 20px 16px !important;
+      border-radius: 0 !important;
+      border: none !important;
+      background: var(--surface, #0d0f1c) !important;
+      box-shadow: none !important;
+      transform: none !important;
+      min-height: 0 !important;
+      position: relative !important;
+    }
+    .cases-grid--failures .case-item::before { display: none !important; }
+    .cases-grid--failures .case-item::after  { display: none !important; }
+    .cases-grid--failures .case-header { padding: 0 0 12px !important; border-bottom: 1px solid rgba(255,255,255,0.07) !important; margin-bottom: 12px !important; }
+    .cases-grid--failures .case-header .cn  { font-size: 20px !important; }
+    .cases-grid--failures .case-header .ctag { font-size: 9px !important; }
+    .cases-grid--failures .case-body h3 { font-size: 13px !important; line-height: 1.4 !important; margin-bottom: 8px !important; }
+    .cases-grid--failures .case-body p  { font-size: 12px !important; line-height: 1.6 !important; }
+    .cases-grid--failures .case-out { font-size: 11px !important; margin-top: 10px !important; }
+    .cases-grid--failures .case-icon { display: none !important; }
+    /* severity pip strip at top of each failure card */
+    .f-severity-strip { height: 3px; position: absolute; top: 0; left: 0; right: 0; }
+
+    /* ── COST CASE CARDS ───────────────────────────────────────── */
+    .cost-case-visual { animation: costFadeIn 0.6s ease forwards; }
+    @keyframes costFadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Animated cost number */
+    .cost-num { font-family: 'Bricolage Grotesque',sans-serif; font-size: 32px; font-weight: 800; letter-spacing: -0.04em; line-height: 1; margin-bottom: 6px; }
+    .cost-num.red   { color: #ef6b6b; }
+    .cost-num.amber { color: #e0bc56; }
+    .cost-num.purple{ color: #a78bfa; }
+
+    /* cost case card layout inline */
+    .cost-card-inner { display: grid; grid-template-columns: 140px 1fr; gap: 0; }
+    .cost-card-left  { border-right: 1px solid rgba(255,255,255,0.07); padding: 24px 18px; display: flex; flex-direction: column; background: rgba(0,0,0,0.15); position: relative; overflow: hidden; }
+    .cost-card-left::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:var(--cc-color,rgba(255,255,255,0.2)); }
+    .cost-card-right { padding: 24px 24px; }
+    .cost-pill { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.4); margin-bottom: 10px; }
+  </style>
 </head>
 
 <body>
@@ -47,20 +161,27 @@ permalink: /barriers.html
 
     <div class="cases-grid cases-grid--barriers fade-in">
       <div class="case-item case-item--warning">
-        <div class="case-header">
-          <div class="cn">01</div>
-          <div class="ctag">Culture</div>
-          <div class="case-icon"><i data-lucide="users" class="lucide" aria-hidden="true"></i></div>
-        </div>
-        <div class="barrier-severity">
-          <div class="barrier-severity-pips">
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip"></div>
+        <div class="b-visual-panel" style="--b-color:#e0bc56">
+          <div class="b-vis-num">01</div>
+          <div class="b-vis-tag">Culture</div>
+          <div class="b-vis-label">Severity</div>
+          <svg class="b-sev-svg" width="120" height="72" viewBox="0 0 120 72" aria-hidden="true">
+            <path d="M12,65 A52,52 0 0,1 108,65" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M12,65 A52,52 0 0,1 108,65" fill="none" stroke="#e0bc56" stroke-width="8" stroke-linecap="round"
+              stroke-dasharray="163" stroke-dashoffset="33" opacity="0.8"/>
+            <text x="60" y="58" text-anchor="middle" font-size="18" font-weight="700" fill="white" font-family="Bricolage Grotesque,sans-serif">80%</text>
+            <text x="60" y="70" text-anchor="middle" font-size="8" font-weight="700" fill="rgba(224,188,86,0.8)" font-family="Space Grotesk,sans-serif" letter-spacing="0.08em">HIGH</text>
+          </svg>
+          <div class="b-vis-label" style="margin-top:10px">Incentive misalignment</div>
+          <div class="b-signal-bars">
+            <div class="b-signal-bar" style="height:70%;opacity:0.9;--b-color:#e0bc56"></div>
+            <div class="b-signal-bar" style="height:85%;opacity:0.8;--b-color:#e0bc56"></div>
+            <div class="b-signal-bar" style="height:60%;opacity:0.7;--b-color:#e0bc56"></div>
+            <div class="b-signal-bar" style="height:90%;opacity:0.9;--b-color:#e0bc56"></div>
+            <div class="b-signal-bar" style="height:50%;opacity:0.5;--b-color:#e0bc56"></div>
+            <div class="b-signal-bar" style="height:75%;opacity:0.7;--b-color:#e0bc56"></div>
           </div>
-          <span class="barrier-severity-label">High</span>
+          <div class="b-cost-note">Tacit knowledge hoarding rises with seniority. Attribution trails are the fix.</div>
         </div>
         <div class="case-body">
           <h3>Knowledge hoarding is rational behaviour</h3>
@@ -72,20 +193,22 @@ permalink: /barriers.html
         </div>
       </div>
       <div class="case-item case-item--signal">
-        <div class="case-header">
-          <div class="cn">02</div>
-          <div class="ctag">Complexity</div>
-          <div class="case-icon"><i data-lucide="layers" class="lucide" aria-hidden="true"></i></div>
-        </div>
-        <div class="barrier-severity">
-          <div class="barrier-severity-pips">
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip"></div>
-            <div class="barrier-pip"></div>
-          </div>
-          <span class="barrier-severity-label">Medium–High</span>
+        <div class="b-visual-panel" style="--b-color:#22b9dc">
+          <div class="b-vis-num">02</div>
+          <div class="b-vis-tag">Complexity</div>
+          <div class="b-vis-label">Estate surface area</div>
+          <svg width="160" height="60" viewBox="0 0 160 60" fill="none" aria-hidden="true">
+            <rect x="0"  y="30" width="22" height="30" fill="rgba(34,185,220,0.7)" rx="2"/>
+            <rect x="26" y="20" width="22" height="40" fill="rgba(34,185,220,0.5)" rx="2"/>
+            <rect x="52" y="10" width="22" height="50" fill="rgba(34,185,220,0.6)" rx="2"/>
+            <rect x="78" y="5"  width="22" height="55" fill="rgba(34,185,220,0.8)" rx="2"/>
+            <rect x="104" y="15" width="22" height="45" fill="rgba(34,185,220,0.55)" rx="2"/>
+            <rect x="130" y="25" width="22" height="35" fill="rgba(34,185,220,0.4)" rx="2"/>
+            <line x1="0" y1="59" x2="160" y2="59" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+          </svg>
+          <div class="b-cost-note" style="margin-top:6px">Hundreds of forms, dozens of systems. No clean starting point.</div>
+          <div style="margin-top:12px;font-size:9px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:0.06em;font-weight:600">Severity</div>
+          <div style="margin-top:4px;font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;color:#22b9dc">Medium–High</div>
         </div>
         <div class="case-body">
           <h3>Knowledge estates are vast and varied</h3>
@@ -98,20 +221,22 @@ permalink: /barriers.html
         </div>
       </div>
       <div class="case-item case-item--warning">
-        <div class="case-header">
-          <div class="cn">03</div>
-          <div class="ctag">Investment</div>
-          <div class="case-icon"><i data-lucide="hourglass" class="lucide" aria-hidden="true"></i></div>
-        </div>
-        <div class="barrier-severity">
-          <div class="barrier-severity-pips">
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip"></div>
-          </div>
-          <span class="barrier-severity-label">High</span>
+        <div class="b-visual-panel" style="--b-color:#67d487">
+          <div class="b-vis-num">03</div>
+          <div class="b-vis-tag">Investment</div>
+          <div class="b-vis-label">Value accumulation curve</div>
+          <svg width="160" height="56" viewBox="0 0 160 56" fill="none" aria-hidden="true">
+            <defs><linearGradient id="retGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#67d487" stop-opacity="0.2"/><stop offset="100%" stop-color="#67d487" stop-opacity="0"/></linearGradient></defs>
+            <path d="M0,52 C30,51 50,50 70,46 C90,40 110,28 140,12 L160,5 L160,56 L0,56 Z" fill="url(#retGrad)"/>
+            <path d="M0,52 C30,51 50,50 70,46 C90,40 110,28 140,12 L160,5" stroke="#67d487" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="70" cy="46" r="3" fill="#67d487" opacity="0.5"/>
+            <circle cx="140" cy="12" r="4" fill="#67d487"/>
+            <line x1="0" y1="38" x2="160" y2="38" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="3 4"/>
+            <text x="4" y="36" font-size="8" fill="rgba(255,255,255,0.2)" font-family="Space Grotesk,sans-serif">breakeven</text>
+          </svg>
+          <div class="b-cost-note" style="margin-top:6px">Returns are real but accumulate. Infrastructure logic, not project logic.</div>
+          <div style="margin-top:12px;font-size:9px;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:0.06em;font-weight:600">Severity</div>
+          <div style="margin-top:4px;font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:700;color:#67d487">High</div>
         </div>
         <div class="case-body">
           <h3>The returns are real but not immediate</h3>
@@ -124,20 +249,19 @@ permalink: /barriers.html
         </div>
       </div>
       <div class="case-item case-item--risk">
-        <div class="case-header">
-          <div class="cn">04</div>
-          <div class="ctag">AI Dependency</div>
-          <div class="case-icon"><i data-lucide="cpu" class="lucide" aria-hidden="true"></i></div>
-        </div>
-        <div class="barrier-severity">
-          <div class="barrier-severity-pips">
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-            <div class="barrier-pip lit"></div>
-          </div>
-          <span class="barrier-severity-label">Critical</span>
+        <div class="b-visual-panel" style="--b-color:#ef6b6b">
+          <div class="b-vis-num">04</div>
+          <div class="b-vis-tag">AI Dependency</div>
+          <div class="b-vis-label">Severity</div>
+          <svg class="b-sev-svg" width="120" height="72" viewBox="0 0 120 72" aria-hidden="true">
+            <path d="M12,65 A52,52 0 0,1 108,65" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M12,65 A52,52 0 0,1 108,65" fill="none" stroke="#ef6b6b" stroke-width="8" stroke-linecap="round"
+              stroke-dasharray="163" stroke-dashoffset="0" opacity="0.9"/>
+            <text x="60" y="58" text-anchor="middle" font-size="18" font-weight="700" fill="white" font-family="Bricolage Grotesque,sans-serif">100%</text>
+            <text x="60" y="70" text-anchor="middle" font-size="8" font-weight="700" fill="rgba(239,107,107,0.9)" font-family="Space Grotesk,sans-serif" letter-spacing="0.08em">CRITICAL</text>
+          </svg>
+          <div class="b-vis-label" style="margin-top:10px">AI amplifies what’s there</div>
+          <div class="b-cost-note">Without governed foundations, AI scales the problem, not the solution.</div>
         </div>
         <div class="case-body">
           <h3>AI capability is necessary but not sufficient</h3>
@@ -288,13 +412,14 @@ permalink: /barriers.html
       and the cost argument is, in most organisations, the larger of the two.</p>
 
     <div class="cases-grid cases-grid--barriers fade-in">
-      <div class="case-item case-item--risk">
-        <div class="case-header">
-          <div class="cn">01</div>
-          <div class="ctag">Decision Risk</div>
-          <div class="case-icon"><i data-lucide="triangle-alert" class="lucide" aria-hidden="true"></i></div>
-        </div>
-        <div class="case-body">
+      <div class="case-item case-item--risk" style="display:block !important;padding:0 !important">
+        <div class="cost-card-inner" style="--cc-color:#ef6b6b">
+          <div class="cost-card-left">
+            <div class="cost-pill">01 · Decision Risk</div>
+            <div class="cost-num red" id="cost-counter-1">£0M</div>
+            <div class="b-cost-note">Cost of a single acquisition made on ungoverned knowledge. Often exceeds the full investment in KI capability.</div>
+          </div>
+          <div class="cost-card-right">
           <h3>The cost of one major decision made on low-confidence knowledge</h3>
           <p>Not a failed project &#8212; a decision made on knowledge that looked reliable but was not. Acquisitions
             that destroyed value. Market entries built on assumptions that had been superseded. Platform investments
@@ -302,15 +427,21 @@ permalink: /barriers.html
             most large organisations, larger than the entire cost of building a Knowledge Intelligence capability.</p>
           <div class="case-out">The question is not whether to invest in KI. It is whether the next high-stakes
             decision will be the one that proves the cost of not having invested.</div>
+          </div>
         </div>
       </div>
-      <div class="case-item case-item--warning">
-        <div class="case-header">
-          <div class="cn">02</div>
-          <div class="ctag">Silent Loss</div>
-          <div class="case-icon"><i data-lucide="trending-down" class="lucide" aria-hidden="true"></i></div>
-        </div>
-        <div class="case-body">
+      <div class="case-item case-item--warning" style="display:block !important;padding:0 !important">
+        <div class="cost-card-inner" style="--cc-color:#e0bc56">
+          <div class="cost-card-left">
+            <div class="cost-pill">02 · Silent Loss</div>
+            <svg width="120" height="60" viewBox="0 0 120 60" fill="none" aria-hidden="true" style="margin-bottom:8px">
+              <path d="M0,8 C20,9 40,12 60,20 C80,30 100,42 120,54" stroke="#e0bc56" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M0,8 C20,9 40,12 60,20 C80,30 100,42 120,54 L120,60 L0,60 Z" fill="rgba(224,188,86,0.08)"/>
+              <text x="4" y="7" font-size="8" fill="rgba(255,255,255,0.25)" font-family="Space Grotesk,sans-serif">Silent loss accumulates</text>
+            </svg>
+            <div class="b-cost-note">Invisible cost compounds year on year — departures, forgotten lessons, stale strategy.</div>
+          </div>
+          <div class="cost-card-right">
           <h3>The accumulated cost of losing intelligence without knowing it</h3>
           <p>Senior departures where no transfer governance existed. Project closures where lessons were filed and
             forgotten. Strategic frameworks maintained past their useful life because no one measured their actual
@@ -318,15 +449,24 @@ permalink: /barriers.html
             intelligence layer. The cost is largely invisible &#8212; which is precisely why it is rarely challenged.</p>
           <div class="case-out">Invisible cost is not zero cost. It is cost that compounds without being measured,
             challenged, or stopped.</div>
+          </div>
         </div>
       </div>
-      <div class="case-item case-item--risk">
-        <div class="case-header">
-          <div class="cn">03</div>
-          <div class="ctag">AI ROI</div>
-          <div class="case-icon"><i data-lucide="cpu" class="lucide" aria-hidden="true"></i></div>
-        </div>
-        <div class="case-body">
+      <div class="case-item case-item--risk" style="display:block !important;padding:0 !important">
+        <div class="cost-card-inner" style="--cc-color:#a78bfa">
+          <div class="cost-card-left">
+            <div class="cost-pill">03 · AI ROI</div>
+            <svg width="120" height="60" viewBox="0 0 120 60" fill="none" aria-hidden="true" style="margin-bottom:8px">
+              <rect x="10" y="20" width="20" height="40" fill="rgba(167,139,250,0.5)" rx="2"/>
+              <rect x="40" y="30" width="20" height="30" fill="rgba(167,139,250,0.3)" rx="2"/>
+              <rect x="70" y="10" width="20" height="50" fill="rgba(167,139,250,0.7)" rx="2"/>
+              <rect x="100" y="35" width="20" height="25" fill="rgba(167,139,250,0.25)" rx="2"/>
+              <text x="10" y="15" font-size="8" fill="rgba(255,255,255,0.25)" font-family="Space Grotesk,sans-serif">AI spend</text>
+              <text x="70" y="8"  font-size="8" fill="rgba(167,139,250,0.8)" font-family="Space Grotesk,sans-serif">≠ value</text>
+            </svg>
+            <div class="b-cost-note">74% of orgs struggle to scale AI value. The constraint is knowledge, not model capability.</div>
+          </div>
+          <div class="cost-card-right">
           <h3>What AI investment produces without a reliable knowledge foundation</h3>
           <p>74% of organisations report struggling to achieve and scale AI value despite widespread adoption.<span
               class="cite">BCG, 2024</span> The constraint is not the model &#8212; it is the quality of the knowledge
@@ -335,6 +475,7 @@ permalink: /barriers.html
             better knowledge governance makes the problem larger, not smaller.</p>
           <div class="case-out">AI investment without knowledge governance is not a technology problem. It is a
             compounding cost problem dressed as a capability programme.</div>
+          </div>
         </div>
       </div>
     </div>
@@ -426,6 +567,26 @@ permalink: /barriers.html
     </a>
   </nav>
   <script src="/assets/js/site.js?v=20260303-1" defer></script>
+  <script>
+    (function(){
+      // Animate cost counter on scroll
+      var counter = document.getElementById('cost-counter-1');
+      if (!counter) return;
+      var started = false;
+      var io = new IntersectionObserver(function(entries){
+        if (entries[0].isIntersecting && !started) {
+          started = true;
+          var start = 0, end = 47, duration = 1600, step = 16;
+          var timer = setInterval(function(){
+            start += Math.ceil((end - start) / 8);
+            counter.textContent = '£' + start + 'M+';
+            if (start >= end) { counter.textContent = '£47M+'; clearInterval(timer); }
+          }, step);
+        }
+      }, { threshold: 0.3 });
+      io.observe(counter);
+    }());
+  </script>
 </body>
 
 </html>

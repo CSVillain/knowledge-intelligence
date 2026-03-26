@@ -18,6 +18,77 @@ permalink: /whynow.html
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
   <link rel="stylesheet" href="/assets/css/site.css?v=20260303-1">
+  <style>
+    /* ── CONVERGENCE VIZ ───────────────────────────────── */
+    .convergence-wrap {
+      margin: 32px 0;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .convergence-wrap svg { display: block; width: 100%; }
+    .conv-path {
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-dasharray: 500;
+      stroke-dashoffset: 500;
+      transition: stroke-dashoffset 1.6s cubic-bezier(0.4,0,0.2,1);
+    }
+    .convergence-wrap.visible .conv-path { stroke-dashoffset: 0; }
+    .convergence-wrap.visible .conv-path-2 { transition-delay: 0.2s; }
+    .convergence-wrap.visible .conv-path-3 { transition-delay: 0.4s; }
+    .conv-node {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .convergence-wrap.visible .conv-node { opacity: 1; }
+    .convergence-wrap.visible .conv-node-2 { transition-delay: 1.4s; }
+    .convergence-wrap.visible .conv-node-3 { transition-delay: 1.6s; }
+    .convergence-wrap.visible .conv-node-merge { transition-delay: 1.8s; }
+
+    /* Journey card upgrades */
+    .journey-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .journey-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--jc-color, rgba(255,255,255,0.15));
+      opacity: 0.7;
+    }
+    .journey-card:nth-child(1) { --jc-color: #22b9dc; }
+    .journey-card:nth-child(2) { --jc-color: #a78bfa; }
+    .journey-card:nth-child(3) { --jc-color: #67d487; }
+
+    /* AI formula visual */
+    .af-term.known {
+      position: relative;
+    }
+    .af-term.known::after {
+      content: '✓';
+      position: absolute;
+      top: -6px; right: -6px;
+      font-size: 10px;
+      color: #67d487;
+      font-weight: 700;
+    }
+    .af-term.missing {
+      position: relative;
+    }
+    .af-term.missing::after {
+      content: '×';
+      position: absolute;
+      top: -6px; right: -6px;
+      font-size: 12px;
+      color: #ef6b6b;
+      font-weight: 700;
+    }
+  </style>
 </head>
 
 <body>
@@ -43,6 +114,39 @@ permalink: /whynow.html
       <h1>Three conditions have converged to make this both necessary and possible.</h1>
       <p>AI can only be as good as the knowledge it runs on. Right now, many organisations have the models but not the
         knowledge quality or governance needed for reliable output. That is why Knowledge Intelligence is needed now.</p>
+
+      <div class="convergence-wrap fade-in" id="conv-wrap">
+        <svg viewBox="0 0 800 160" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <defs>
+            <linearGradient id="conv-merge" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,0.6)" />
+            </linearGradient>
+          </defs>
+          <!-- Grid lines -->
+          <line x1="0" y1="80" x2="800" y2="80" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+          <!-- Three converging paths -->
+          <path class="conv-path" d="M40,30 C200,30 340,78 520,80" stroke="#22b9dc" opacity="0.8"/>
+          <path class="conv-path conv-path-2" d="M40,80 C200,80 340,80 520,80" stroke="#a78bfa" opacity="0.8"/>
+          <path class="conv-path conv-path-3" d="M40,130 C200,130 340,82 520,80" stroke="#67d487" opacity="0.8"/>
+          <!-- Merged path -->
+          <path class="conv-path conv-node-merge" d="M520,80 C620,80 700,80 760,80" stroke="url(#conv-merge)" opacity="0.9" stroke-width="3"/>
+          <!-- Origin nodes -->
+          <circle cx="40" cy="30"  r="5" fill="#22b9dc" class="conv-node"/>
+          <circle cx="40" cy="80"  r="5" fill="#a78bfa" class="conv-node conv-node-2"/>
+          <circle cx="40" cy="130" r="5" fill="#67d487" class="conv-node conv-node-3"/>
+          <!-- Origin labels -->
+          <text x="52" y="34"  font-size="10" fill="rgba(34,185,220,0.8)"  font-family="Space Grotesk,sans-serif" font-weight="700" letter-spacing="0.08em" class="conv-node">01 · SCALE</text>
+          <text x="52" y="84"  font-size="10" fill="rgba(167,139,250,0.8)" font-family="Space Grotesk,sans-serif" font-weight="700" letter-spacing="0.08em" class="conv-node conv-node-2">02 · QUALITY</text>
+          <text x="52" y="134" font-size="10" fill="rgba(103,212,135,0.8)" font-family="Space Grotesk,sans-serif" font-weight="700" letter-spacing="0.08em" class="conv-node conv-node-3">03 · CONFIDENCE</text>
+          <!-- Merge point -->
+          <circle cx="520" cy="80" r="7" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" class="conv-node-merge conv-node"/>
+          <circle cx="520" cy="80" r="3" fill="white" opacity="0.6" class="conv-node-merge conv-node"/>
+          <!-- KI label at end -->
+          <text x="770" y="76"  font-size="11" fill="rgba(255,255,255,0.7)" font-family="Bricolage Grotesque,sans-serif" font-weight="700" text-anchor="end" class="conv-node-merge conv-node">KI</text>
+          <text x="770" y="88" font-size="8" fill="rgba(255,255,255,0.3)" font-family="Space Grotesk,sans-serif" text-anchor="end" class="conv-node-merge conv-node">CONVERGED</text>
+        </svg>
+      </div>
 
       <div class="challenge-list challenge-journey fade-in">
         <div class="journey-map">
@@ -180,6 +284,16 @@ permalink: /whynow.html
     </a>
   </nav>
   <script src="/assets/js/site.js?v=20260303-1" defer></script>
+  <script>
+    (function(){
+      var wrap = document.getElementById('conv-wrap');
+      if (!wrap) return;
+      var io = new IntersectionObserver(function(entries){
+        if (entries[0].isIntersecting) { wrap.classList.add('visible'); io.unobserve(wrap); }
+      }, { threshold: 0.3 });
+      io.observe(wrap);
+    }());
+  </script>
 </body>
 
 </html>
