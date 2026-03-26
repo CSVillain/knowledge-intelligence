@@ -670,6 +670,27 @@ permalink: /assets.html
         the universe it sits within.</p>
     </div>
 
+    <div class="tacit-network-wrap fade-in" id="tacit-stats">
+      <div class="tacit-stat">
+        <div class="tacit-stat-val" style="color:#55d6ff">80<span style="font-size:20px">%</span></div>
+        <div class="tacit-stat-desc">of organisational knowledge is tacit — invisible to all current governance frameworks</div>
+        <div class="tacit-stat-src">Nonaka &amp; Takeuchi, 1995</div>
+        <div class="tacit-stat-bar"><div class="tacit-stat-bar-fill" style="width:80%;background:#55d6ff"></div></div>
+      </div>
+      <div class="tacit-stat">
+        <div class="tacit-stat-val" style="color:#c8a84a">48<span style="font-size:20px">%</span></div>
+        <div class="tacit-stat-desc">of executives confirm critical tacit knowledge departs with employees every year</div>
+        <div class="tacit-stat-src">KMWorld, 2024</div>
+        <div class="tacit-stat-bar"><div class="tacit-stat-bar-fill" style="width:48%;background:#c8a84a"></div></div>
+      </div>
+      <div class="tacit-stat">
+        <div class="tacit-stat-val" style="color:#67d487">1.5–2<span style="font-size:16px">×</span></div>
+        <div class="tacit-stat-desc">annual salary cost to replace a senior tacit knowledge holder — not counting unrecoverable intelligence</div>
+        <div class="tacit-stat-src">Industry benchmark</div>
+        <div class="tacit-stat-bar"><div class="tacit-stat-bar-fill" style="width:70%;background:#67d487"></div></div>
+      </div>
+    </div>
+
     <h3 class="section-heading-spaced">How Knowledge Intelligence differs from traditional KM</h3>
     <p>Knowledge Intelligence sits inside the Knowledge Management lineage, but it is not a rebrand or a tool category.
       It is a shift in scope, in method, and in outcome.</p>
@@ -679,7 +700,7 @@ permalink: /assets.html
       <div class="kc-row kc-header">
         <div class="kc-cell kc-dim"></div>
         <div class="kc-cell kc-km"><span class="kc-header-label">Traditional KM</span></div>
-        <div class="kc-cell kc-ki"><span class="kc-header-label">Knowledge Intelligence</span></div>
+        <div class="kc-cell kc-ki"><div class="ki-live-dot"></div><span class="kc-header-label">Knowledge Intelligence</span></div>
       </div>
 
       <div class="kc-row">
@@ -736,6 +757,99 @@ permalink: /assets.html
   </nav>
 
   <script src="/assets/js/site.js?v=20260303-1" defer></script>
+  <style>
+    /* ── KI COMPARE TABLE ENHANCEMENTS ─────────────────────── */
+    .kc-cell.kc-ki .kc-body-text {
+      color: rgba(230,240,255,0.92);
+    }
+    /* Staggered row reveal already handled by JS — add a subtle left accent on KI col */
+    .kc-cell.kc-ki {
+      border-left: 2px solid rgba(200,168,74,0.25) !important;
+    }
+    /* KI column header gets a live dot */
+    .kc-header .kc-cell.kc-ki {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ki-live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #c8a84a;
+      flex-shrink: 0;
+      animation: kiPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes kiPulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.35; transform: scale(0.7); }
+    }
+
+    /* ── RATIO BAR LABEL EMPHASIS ──────────────────────────── */
+    .ratio-side.tacit .ratio-pct {
+      font-size: 30px;
+    }
+    .ratio-side.explicit .ratio-pct {
+      font-size: 30px;
+    }
+
+    /* ── TACIT NODE NETWORK VIZ ────────────────────────────── */
+    .tacit-network-wrap {
+      margin: 32px 0 0;
+      background: rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 24px 28px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+    }
+    .tacit-stat {
+      padding: 16px 20px;
+      border-right: 1px solid rgba(255,255,255,0.07);
+    }
+    .tacit-stat:last-child { border-right: none; }
+    .tacit-stat-val {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .tacit-stat-desc {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.55;
+      max-width: 180px;
+    }
+    .tacit-stat-src {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      margin-top: 8px;
+    }
+    .tacit-stat-bar {
+      height: 2px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 1px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .tacit-stat-bar-fill {
+      height: 100%;
+      border-radius: 1px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .tacit-network-wrap.vis .tacit-stat-bar-fill { transform: scaleX(1); }
+    .tacit-network-wrap.vis .tacit-stat:nth-child(2) .tacit-stat-bar-fill { transition-delay: 0.15s; }
+    .tacit-network-wrap.vis .tacit-stat:nth-child(3) .tacit-stat-bar-fill { transition-delay: 0.3s; }
+  </style>
   <script>
     /* ── CARD HOVER CROSS-LINK ──────────────────────────── */
     (function () {
@@ -772,6 +886,16 @@ permalink: /assets.html
       document.readyState === 'loading'
         ? document.addEventListener('DOMContentLoaded', initCompare, { once: true })
         : initCompare();
+    }());
+
+    /* ── TACIT STATS SCROLL TRIGGER ───────────────────────── */
+    (function(){
+      var el = document.getElementById('tacit-stats');
+      if (!el) return;
+      var io = new IntersectionObserver(function(e){
+        if (e[0].isIntersecting) { el.classList.add('vis'); io.unobserve(el); }
+      }, { threshold: 0.3 });
+      io.observe(el);
     }());
   </script>
 </body>
