@@ -46,11 +46,76 @@ permalink: /measurement.html
       to recognise success. The organisations that have deployed this capability at scale share a common discipline:
       they defined what they were trying to move, established a baseline before they began, and tracked a small number
       of meaningful metrics rather than a large number of available ones.</p>
-    <p>The framework below organises measurement into four tiers. Together they show quality, operational effect,
-      financial efficiency, and estate health. Each metric is grounded in operational signals rather than abstract
-      sentiment.</p>
+    <p>Measurement must be anchored to what the capability exists to do: generate intelligence that improves the
+      quality and confidence of strategic and financial decisions. Operational metrics matter but they are not the
+      primary signal. A programme that improves search speed while failing to generate decision-grade intelligence is
+      not delivering on the capability&#8217;s purpose.</p>
+    <p>The framework organises measurement into five tiers, starting with strategic intelligence indicators. Together
+    they show decision quality, knowledge quality, operational effect, financial efficiency, and estate health.</p>
 
     <div class="kpi-tiers fade-in">
+
+      <div class="kpi-tier kpi-tier--strategic">
+        <div class="kpi-tier-header">
+          <div class="kpi-tier-num">01</div>
+          <div>
+            <div class="kpi-tier-name">Strategic Intelligence</div>
+            <div class="kpi-tier-q">Is it generating intelligence that improves the quality of decisions?</div>
+          </div>
+        </div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-name">Decision Confidence Rate</div>
+            <div class="kpi-desc">The proportion of material decisions made with confidence-weighted intelligence versus
+              unverified assumption. The primary indicator that the capability is doing what it exists to do.</div>
+            <div class="kpi-signal kpi-signal--good">
+              <div class="kpi-signal-type">Good Signal</div>
+              <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Financial significance</div>
+              <div class="kpi-signal-val">Proxy for reduction in high-stakes decision risk. A single major strategic
+                decision made on low-confidence knowledge typically costs more than the entire investment in building
+                the capability.</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-name">Intelligence Cycle Time</div>
+            <div class="kpi-desc">Elapsed time from a strategic question being asked to a confidence-weighted answer
+              being accepted and acted upon. Tracks whether the governed channel is competitive with ungoverned
+              alternatives.</div>
+            <div class="kpi-signal kpi-signal--warn">
+              <div class="kpi-signal-type">Warning</div>
+              <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">The adoption risk</div>
+              <div class="kpi-signal-val">If the governed channel is slower than ungoverned search or direct AI use,
+                decision-makers will route around it under time pressure. The governed channel must be faster, not just
+                more trustworthy.</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-name">Concentration Risk Index</div>
+            <div class="kpi-desc">The proportion of strategic intelligence domains where fewer than three people or
+              repositories hold the relevant knowledge. Tracks fragility in the intelligence pipeline before it becomes
+              a loss event.</div>
+            <div class="kpi-signal kpi-signal--risk">
+              <div class="kpi-signal-type">At Risk</div>
+              <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Expected loss exposure</div>
+              <div class="kpi-signal-val">Concentration risk is invisible until it crystallises &#8212; a departure, a
+                reorg, a health event. Replacing a senior knowledge holder costs 1.5&#8211;2&times; annual salary, not
+                counting unrecoverable intelligence.</div>
+            </div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-name">Emerging Signal Lead Time</div>
+            <div class="kpi-desc">Average time between KI detecting a convergent pattern across the knowledge estate
+              and that pattern becoming mainstream-recognised. Tracks strategic positioning value.</div>
+            <div class="kpi-signal kpi-signal--good">
+              <div class="kpi-signal-type">Good Signal</div>
+              <div class="kpi-signal-bars"><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div><div class="kpi-signal-bar"></div></div><div class="kpi-signal-label">Strategic positioning value</div>
+              <div class="kpi-signal-val">Organisations acting 6&#8211;12 months ahead of a named shift establish
+                positions that are difficult to reverse. Lead time is the measurable output of signal detection working
+                as intended.</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="kpi-tier kpi-tier--quality">
         <div class="kpi-tier-header">
@@ -285,8 +350,9 @@ permalink: /measurement.html
         <div class="kpi-principle-head">The measurement principle</div>
         <p>No single metric tells the full story. Retrieval success without freshness tracking means you are measuring
           how well people find information that may be wrong. Freshness SLA without reuse rate means you are maintaining
-          a library no one is reading. The four tiers work together: knowledge quality sets the standard, operational
-          impact proves workflow value, financial efficiency proves cost impact, and estate health protects long-term
+          a library no one is reading. The five tiers work together: strategic intelligence indicators confirm the
+          capability is changing what leaders decide; knowledge quality sets the standard for the estate; operational
+          impact proves workflow value; financial efficiency proves cost impact; and estate health protects long-term
           reliability.</p>
         <p>Start with three or four metrics that cover all tiers, and establish baselines before deployment. The most
           common error is attempting to measure everything at once and measuring nothing with rigour.</p>

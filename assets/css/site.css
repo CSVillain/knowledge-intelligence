@@ -3263,6 +3263,19 @@ p:last-child {
   line-height: 1.5;
 }
 
+.case-fin {
+  margin-top: 14px;
+  padding: 11px 14px;
+  background: rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-left: 2px solid rgba(255, 255, 255, 0.15);
+  line-height: 1.58;
+  font-style: italic;
+}
+
 /* KPI TIERS */
 .kpi-tiers {
   margin: 44px 0;
@@ -3283,6 +3296,10 @@ p:last-child {
   padding: 0 0 16px;
   overflow: hidden;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+}
+
+.kpi-tier--strategic {
+  --tier-accent: #22b9dc;
 }
 
 .kpi-tier--ops {

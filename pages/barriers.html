@@ -199,7 +199,7 @@ permalink: /barriers.html
         failures, not technology failures.</div>
     </div>
 
-    <h3 class="section-heading-tight-44">Three failure scenarios to actively govern</h3>
+    <h3 class="section-heading-tight-44">Five failure scenarios to actively govern</h3>
     <div class="cases-grid cases-grid--failures fade-in">
       <div class="case-item case-item--risk">
         <div class="case-header">
@@ -241,6 +241,100 @@ permalink: /barriers.html
             This also increases dependency on external vendors for knowledge the organisation already holds.</p>
           <div class="case-out">Mitigation owner: Business unit leadership and HR. Tie recognition to attribution
             coverage and reuse impact.</div>
+        </div>
+      </div>
+      <div class="case-item case-item--risk">
+        <div class="case-header">
+          <div class="cn">D</div>
+          <div class="ctag">AI Output</div>
+          <div class="case-icon"><i data-lucide="bot" class="lucide" aria-hidden="true"></i></div>
+        </div>
+        <div class="case-body">
+          <h3>LLM confidence inflation masking low-quality sources</h3>
+          <p>LLM synthesis outputs are fluent regardless of underlying knowledge quality. High-confidence-sounding
+            language in a generated output does not indicate that the source assets warranted that confidence. Without
+            explicit propagation of Knowledge Health Scores into generated outputs, users cannot distinguish
+            well-grounded intelligence from well-phrased inference &#8212; and will act on it as if they are the same.</p>
+          <div class="case-out">Mitigation owner: Platform and Knowledge Engineering leads. KHS scores must be
+            surface-visible in every generated output. Confidence level is not optional metadata &#8212; it is part of
+            the output.</div>
+        </div>
+      </div>
+      <div class="case-item case-item--governance">
+        <div class="case-header">
+          <div class="cn">E</div>
+          <div class="ctag">Adoption</div>
+          <div class="case-icon"><i data-lucide="git-branch" class="lucide" aria-hidden="true"></i></div>
+        </div>
+        <div class="case-body">
+          <h3>Governance bypass under time pressure</h3>
+          <p>Decision-makers under time pressure will route around the governed intelligence layer entirely, using
+            ungoverned search or direct AI tools. Governance thresholds only constrain what passes through the governed
+            pipeline &#8212; they do not prevent parallel ungoverned use. If the governed channel is slower or less
+            convenient, it will be abandoned in the moments that matter most.</p>
+          <div class="case-out">Mitigation owner: Business unit leadership. Intelligence Cycle Time (Tier 1) must be
+            competitive with ungoverned alternatives. A governed channel that is trusted but slow will lose to one that
+            is fast but ungoverned.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COST CASE -->
+  <div class="sw" id="cost-case">
+    <div class="section-tag">The Cost Case</div>
+    <h2>The financial consequences of not building this capability.</h2>
+    <p>The case for Knowledge Intelligence is usually made as a value argument. It is equally a cost argument &#8212;
+      and the cost argument is, in most organisations, the larger of the two.</p>
+
+    <div class="cases-grid cases-grid--barriers fade-in">
+      <div class="case-item case-item--risk">
+        <div class="case-header">
+          <div class="cn">01</div>
+          <div class="ctag">Decision Risk</div>
+          <div class="case-icon"><i data-lucide="triangle-alert" class="lucide" aria-hidden="true"></i></div>
+        </div>
+        <div class="case-body">
+          <h3>The cost of one major decision made on low-confidence knowledge</h3>
+          <p>Not a failed project &#8212; a decision made on knowledge that looked reliable but was not. Acquisitions
+            that destroyed value. Market entries built on assumptions that had been superseded. Platform investments
+            justified by internal consensus rather than evidence. The financial exposure from one such decision is, in
+            most large organisations, larger than the entire cost of building a Knowledge Intelligence capability.</p>
+          <div class="case-out">The question is not whether to invest in KI. It is whether the next high-stakes
+            decision will be the one that proves the cost of not having invested.</div>
+        </div>
+      </div>
+      <div class="case-item case-item--warning">
+        <div class="case-header">
+          <div class="cn">02</div>
+          <div class="ctag">Silent Loss</div>
+          <div class="case-icon"><i data-lucide="trending-down" class="lucide" aria-hidden="true"></i></div>
+        </div>
+        <div class="case-body">
+          <h3>The accumulated cost of losing intelligence without knowing it</h3>
+          <p>Senior departures where no transfer governance existed. Project closures where lessons were filed and
+            forgotten. Strategic frameworks maintained past their useful life because no one measured their actual
+            performance. These are not edge cases. They are the default operating condition of organisations without an
+            intelligence layer. The cost is largely invisible &#8212; which is precisely why it is rarely challenged.</p>
+          <div class="case-out">Invisible cost is not zero cost. It is cost that compounds without being measured,
+            challenged, or stopped.</div>
+        </div>
+      </div>
+      <div class="case-item case-item--risk">
+        <div class="case-header">
+          <div class="cn">03</div>
+          <div class="ctag">AI ROI</div>
+          <div class="case-icon"><i data-lucide="cpu" class="lucide" aria-hidden="true"></i></div>
+        </div>
+        <div class="case-body">
+          <h3>What AI investment produces without a reliable knowledge foundation</h3>
+          <p>74% of organisations report struggling to achieve and scale AI value despite widespread adoption.<span
+              class="cite">BCG, 2024</span> The constraint is not the model &#8212; it is the quality of the knowledge
+            beneath it. Every pound spent on AI capability without a corresponding investment in knowledge foundations
+            is a pound spent on processing speed for an intelligence engine that cannot be trusted. More AI without
+            better knowledge governance makes the problem larger, not smaller.</p>
+          <div class="case-out">AI investment without knowledge governance is not a technology problem. It is a
+            compounding cost problem dressed as a capability programme.</div>
         </div>
       </div>
     </div>
@@ -312,6 +406,10 @@ permalink: /barriers.html
         <div class="citation-num">8</div>
         <div class="citation-text"><em>McKinsey and Company</em> - The State of AI in 2025: Agents, Innovation, and
           Transformation. McKinsey Global Survey, 2025.</div>
+      </div>
+      <div class="citation-item">
+        <div class="citation-num">9</div>
+        <div class="citation-text"><em>Boston Consulting Group</em> - Why AI Transformations Fail. BCG, 2024.</div>
       </div>
     </div>
   </div>
