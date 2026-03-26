@@ -18,6 +18,125 @@ permalink: /decisions.html
     rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/lucide@0.462.0/dist/umd/lucide.min.js" defer></script>
   <link rel="stylesheet" href="/assets/css/site.css?v=20260303-1">
+  <style>
+    /* ── DECISION VISUAL PANELS ──────────────────────────────────── */
+    .cases-grid--decisions {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 0 !important;
+      margin: 44px 0 !important;
+    }
+    .cases-grid--decisions .case-item {
+      display: grid !important;
+      grid-template-columns: 260px 1fr !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      border-left: none !important;
+      border-right: none !important;
+      border-top: none !important;
+      border-bottom: 1px solid rgba(255,255,255,0.07) !important;
+      box-shadow: none !important;
+      min-height: 0 !important;
+      transform: none !important;
+    }
+    .cases-grid--decisions .case-item:first-child { border-top: 1px solid rgba(255,255,255,0.07) !important; border-radius: 10px 10px 0 0 !important; }
+    .cases-grid--decisions .case-item:last-child { border-radius: 0 0 10px 10px !important; border-bottom: 1px solid rgba(255,255,255,0.07) !important; }
+    .cases-grid--decisions .case-item::before { display: none !important; }
+    .cases-grid--decisions .case-item::after { display: none !important; }
+    .cases-grid--decisions .case-item:hover { transform: none !important; border-color: rgba(255,255,255,0.14) !important; }
+
+    .d-visual-panel {
+      border-right: 1px solid rgba(255,255,255,0.07);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      background: rgba(0,0,0,0.18);
+      position: relative;
+      overflow: hidden;
+    }
+    .d-visual-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--case-accent);
+      opacity: 0.8;
+    }
+    .d-visual-num {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .d-visual-tag {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--case-accent);
+      margin-bottom: 18px;
+    }
+    .d-vis-label {
+      font-size: 9px;
+      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.25);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .cases-grid--decisions .case-body {
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .cases-grid--decisions .case-header { display: none !important; }
+    .cases-grid--decisions .case-body h3 { font-size: 18px; margin-bottom: 10px; }
+    .cases-grid--decisions .case-body p { font-size: 14px; line-height: 1.72; margin-bottom: 14px; }
+
+    /* timeline viz */
+    .d-timeline { display: flex; flex-direction: column; gap: 0; }
+    .d-tl-item { display: flex; gap: 10px; }
+    .d-tl-spine { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+    .d-tl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--case-accent); margin-top: 3px; flex-shrink: 0; }
+    .d-tl-dot.dim { background: rgba(255,255,255,0.12); }
+    .d-tl-line { width: 1.5px; flex: 1; background: rgba(255,255,255,0.08); min-height: 18px; }
+    .d-tl-content { padding-bottom: 14px; }
+    .d-tl-head { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.85); margin-bottom: 2px; }
+    .d-tl-sub { font-size: 10px; color: rgba(255,255,255,0.3); }
+    .d-tl-badge { display: inline-block; font-size: 9px; font-weight: 700; letter-spacing: 0.08em; padding: 2px 7px; border-radius: 3px; background: rgba(103,212,135,0.15); color: #67d487; border: 1px solid rgba(103,212,135,0.25); margin-top: 3px; }
+
+    /* heatmap viz */
+    .d-heatmap { display: flex; flex-wrap: wrap; gap: 3px; }
+    .d-heat-cell { width: 13px; height: 13px; border-radius: 2px; }
+    .d-heatmap-legend { display: flex; justify-content: space-between; margin-top: 6px; font-size: 9px; color: rgba(255,255,255,0.25); }
+
+    /* sparkbar viz */
+    .d-sparkbars { display: flex; align-items: flex-end; gap: 3px; height: 44px; }
+    .d-sparkbar { flex: 1; border-radius: 2px 2px 0 0; background: var(--case-accent); }
+    .d-spark-note { font-size: 9px; color: rgba(255,255,255,0.25); margin-top: 6px; line-height: 1.4; }
+
+    /* donut viz */
+    .d-donut-wrap { display: flex; align-items: center; gap: 14px; }
+    .d-donut-labels { display: flex; flex-direction: column; gap: 5px; }
+    .d-donut-item { display: flex; align-items: center; gap: 7px; font-size: 10px; color: rgba(255,255,255,0.55); }
+    .d-donut-swatch { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+    /* gauge viz */
+    .d-gauge-val { font-family: 'Bricolage Grotesque', sans-serif; font-size: 26px; font-weight: 700; letter-spacing: -0.03em; color: var(--case-accent); line-height: 1; margin-bottom: 4px; }
+    .d-gauge-track { height: 5px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; margin-top: 10px; }
+    .d-gauge-fill { height: 100%; border-radius: 3px; background: var(--case-accent); transition: width 1.4s cubic-bezier(0.4,0,0.2,1); }
+    .d-gauge-label { font-size: 9px; color: rgba(255,255,255,0.25); margin-top: 4px; }
+
+    @media (max-width: 860px) {
+      .cases-grid--decisions .case-item { grid-template-columns: 1fr !important; }
+      .d-visual-panel { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    }
+  </style>
 </head>
 
 <body>
@@ -49,10 +168,24 @@ permalink: /decisions.html
     <div class="cases-grid cases-grid--decisions fade-in">
 
       <div class="case-item case-item--opportunity">
-        <div class="case-header">
-          <div class="cn">01</div>
-          <div class="ctag">Strategic Timing</div>
-          <div class="case-icon"><i data-lucide="eye" class="lucide" aria-hidden="true"></i></div>
+        <div class="d-visual-panel">
+          <div class="d-visual-num">01</div>
+          <div class="d-visual-tag">Strategic Timing</div>
+          <div class="d-vis-label">Signal lead time</div>
+          <div class="d-timeline">
+            <div class="d-tl-item">
+              <div class="d-tl-spine"><div class="d-tl-dot"></div><div class="d-tl-line"></div></div>
+              <div class="d-tl-content"><div class="d-tl-head">KI signal detected</div><div class="d-tl-sub">T = 0</div><div class="d-tl-badge">6–12 month advantage</div></div>
+            </div>
+            <div class="d-tl-item">
+              <div class="d-tl-spine"><div class="d-tl-dot"></div><div class="d-tl-line"></div></div>
+              <div class="d-tl-content"><div class="d-tl-head">Strategic position set</div><div class="d-tl-sub">T + 3 months</div></div>
+            </div>
+            <div class="d-tl-item">
+              <div class="d-tl-spine"><div class="d-tl-dot dim"></div></div>
+              <div class="d-tl-content"><div class="d-tl-head" style="color:rgba(255,255,255,0.25)">Mainstream recognition</div><div class="d-tl-sub">T + 9–12 months</div></div>
+            </div>
+          </div>
         </div>
         <div class="case-body">
           <h3>Detecting emerging themes before they are named</h3>
@@ -66,10 +199,13 @@ permalink: /decisions.html
       </div>
 
       <div class="case-item case-item--risk">
-        <div class="case-header">
-          <div class="cn">02</div>
-          <div class="ctag">Risk</div>
-          <div class="case-icon"><i data-lucide="user-x" class="lucide" aria-hidden="true"></i></div>
+        <div class="d-visual-panel">
+          <div class="d-visual-num">02</div>
+          <div class="d-visual-tag">Concentration Risk</div>
+          <div class="d-vis-label">Knowledge holders per domain</div>
+          <div class="d-heatmap" id="heatmap-02"></div>
+          <div class="d-heatmap-legend"><span>1 holder</span><span>Critical</span><span>10+</span></div>
+          <div class="d-spark-note" style="margin-top:10px">Domains with <span style="color:#ef6b6b;font-weight:600">&lt;3 holders</span> flagged critical</div>
         </div>
         <div class="case-body">
           <h3>Measuring concentration risk in the knowledge estate</h3>
@@ -85,10 +221,12 @@ permalink: /decisions.html
       </div>
 
       <div class="case-item case-item--signal">
-        <div class="case-header">
-          <div class="cn">03</div>
-          <div class="ctag">Concept Health</div>
-          <div class="case-icon"><i data-lucide="brain" class="lucide" aria-hidden="true"></i></div>
+        <div class="d-visual-panel">
+          <div class="d-visual-num">03</div>
+          <div class="d-visual-tag">Concept Health</div>
+          <div class="d-vis-label">Framework performance decay</div>
+          <div class="d-sparkbars" id="spark-03"></div>
+          <div class="d-spark-note">Without KI: decay is invisible until sunk cost is entrenched</div>
         </div>
         <div class="case-body">
           <h3>Evidence-based evolution of strategic concepts</h3>
@@ -102,10 +240,25 @@ permalink: /decisions.html
       </div>
 
       <div class="case-item case-item--governance">
-        <div class="case-header">
-          <div class="cn">04</div>
-          <div class="ctag">Confidence</div>
-          <div class="case-icon"><i data-lucide="shield-check" class="lucide" aria-hidden="true"></i></div>
+        <div class="d-visual-panel">
+          <div class="d-visual-num">04</div>
+          <div class="d-visual-tag">Confidence Governance</div>
+          <div class="d-vis-label">Estate confidence distribution</div>
+          <div class="d-donut-wrap">
+            <svg width="72" height="72" viewBox="0 0 72 72" aria-hidden="true">
+              <circle cx="36" cy="36" r="28" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="10"/>
+              <circle cx="36" cy="36" r="28" fill="none" stroke="#67d487" stroke-width="10" stroke-dasharray="52 124" stroke-dashoffset="-9" stroke-linecap="round"/>
+              <circle cx="36" cy="36" r="28" fill="none" stroke="#e0bc56" stroke-width="10" stroke-dasharray="40 136" stroke-dashoffset="-64" stroke-linecap="round"/>
+              <circle cx="36" cy="36" r="28" fill="none" stroke="#ef6b6b" stroke-width="10" stroke-dasharray="84 92" stroke-dashoffset="-107" stroke-linecap="round"/>
+              <text x="36" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="white" font-family="Bricolage Grotesque,sans-serif">29%</text>
+            </svg>
+            <div class="d-donut-labels">
+              <div class="d-donut-item"><div class="d-donut-swatch" style="background:#67d487"></div>Trust  29%</div>
+              <div class="d-donut-item"><div class="d-donut-swatch" style="background:#e0bc56"></div>Review 23%</div>
+              <div class="d-donut-item"><div class="d-donut-swatch" style="background:#ef6b6b"></div>Retire  48%</div>
+            </div>
+          </div>
+          <div class="d-spark-note" style="margin-top:10px">Typical ungoverned baseline. Trust proportion rises as governance matures.</div>
         </div>
         <div class="case-body">
           <h3>Governing confidence across the knowledge estate</h3>
@@ -120,10 +273,14 @@ permalink: /decisions.html
       </div>
 
       <div class="case-item case-item--opportunity">
-        <div class="case-header">
-          <div class="cn">05</div>
-          <div class="ctag">External Alignment</div>
-          <div class="case-icon"><i data-lucide="arrow-left-right" class="lucide" aria-hidden="true"></i></div>
+        <div class="d-visual-panel">
+          <div class="d-visual-num">05</div>
+          <div class="d-visual-tag">External Alignment</div>
+          <div class="d-vis-label">Internal vs external drift</div>
+          <div class="d-gauge-val">74%</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.35);margin-bottom:8px">of leaders report internal knowledge has drifted from market reality</div>
+          <div class="d-gauge-track"><div class="d-gauge-fill" style="width:74%" id="gauge-05"></div></div>
+          <div class="d-gauge-label">KI tracks this drift continuously and flags misalignment before it becomes a strategic error</div>
         </div>
         <div class="case-body">
           <h3>Deliberate alignment between internal knowledge and external context</h3>
@@ -153,6 +310,39 @@ permalink: /decisions.html
     </a>
   </nav>
   <script src="/assets/js/site.js?v=20260303-1" defer></script>
+  <script>
+    (function() {
+      // Heatmap for case 02
+      var hm = document.getElementById('heatmap-02');
+      if (hm) {
+        var vals = [0.95,0.9,0.85,0.75,0.6,0.45,0.3,0.2,0.9,0.85,0.8,0.7,0.55,0.35,0.2,0.15,0.85,0.75,0.6,0.5,0.3,0.2,0.15,0.1];
+        vals.forEach(function(v, i) {
+          var cell = document.createElement('div');
+          cell.className = 'd-heat-cell';
+          if (v > 0.65) { cell.style.background = 'rgba(239,107,107,'+Math.min(1,v)+')'; }
+          else if (v > 0.35) { cell.style.background = 'rgba(224,188,86,'+v+')'; }
+          else { cell.style.background = 'rgba(255,255,255,0.1)'; }
+          cell.style.animationDelay = (i * 0.03) + 's';
+          hm.appendChild(cell);
+        });
+      }
+
+      // Spark bars for case 03 — decay pattern
+      var sp = document.getElementById('spark-03');
+      if (sp) {
+        var heights = [98, 92, 85, 76, 64, 50, 36, 24, 18, 12];
+        var colors  = [0.85, 0.75, 0.6, 0.5, 0.4, 0.3, 0.25, 0.2, 0.18, 0.15];
+        heights.forEach(function(h, i) {
+          var bar = document.createElement('div');
+          bar.className = 'd-sparkbar';
+          bar.style.height = h + '%';
+          bar.style.opacity = colors[i];
+          bar.style.animationDelay = (i * 0.06) + 's';
+          sp.appendChild(bar);
+        });
+      }
+    }());
+  </script>
 </body>
 
 </html>
