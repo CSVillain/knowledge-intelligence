@@ -470,10 +470,22 @@ permalink: /whynow.html
       }
       var gauges = document.getElementById('ki-gauges');
       if (!gauges) return;
-      var io = new IntersectionObserver(function(entries){
-        if (entries[0].isIntersecting) { runGauges(); io.unobserve(gauges); }
-      }, { threshold: 0.3 });
-      io.observe(gauges);
+      function triggerGauges() {
+        // rAF ensures CSS transitions are active before strokeDashoffset changes
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() { runGauges(); });
+        });
+      }
+      // Check if already in viewport on load (threshold 0.3 would miss this)
+      var gr = gauges.getBoundingClientRect();
+      if (gr.top < window.innerHeight && gr.bottom > 0) {
+        triggerGauges();
+      } else {
+        var io = new IntersectionObserver(function(entries){
+          if (entries[0].isIntersecting) { triggerGauges(); io.unobserve(gauges); }
+        }, { threshold: 0.1 });
+        io.observe(gauges);
+      }
     }());
   </script>
 </body>

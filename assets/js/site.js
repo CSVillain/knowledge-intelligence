@@ -225,8 +225,15 @@
           io.unobserve(e.target);
         }
       });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+    }, { threshold: 0.01, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.fade-in').forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        el.classList.add('visible');
+      } else {
+        io.observe(el);
+      }
+    });
 
     /* ── HERO TITLE CHARACTER REVEAL ────────────────────────────── */
     function wrapChars(el, delayStart) {
